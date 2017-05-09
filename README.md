@@ -1,4 +1,4 @@
-<img src="https://github.com/openmaker-eu/socialmedia/blob/master/OpenMakerLogo.png" width="158"><img src="https://github.com/openmaker-eu/socialmedia/blob/master/Ekran%20Resmi%202017-01-11%2014.34.43.png" width="158"><img src="./figures/uzh_logo.png width="158">
+<img src="https://github.com/openmaker-eu/socialmedia/blob/master/OpenMakerLogo.png" width="158"><img src="./figures/uzh_logo.png" width="158"><img src="https://github.com/openmaker-eu/socialmedia/blob/master/Ekran%20Resmi%202017-01-11%2014.34.43.png" width="158">
 
 # The OpenMaker Opinion Leaders API
 

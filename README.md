@@ -119,22 +119,7 @@ https://openmaker.herokuapp.com/scoreboard/sharing
       "score": 0.08854166666666667, 
       "username": "shapeways"
     }, 
-    {
-      "score": 0.08629441624365482, 
-      "username": "element14"
-    }, 
-    {
-      "score": 0.07035175879396985, 
-      "username": "CodeClub"
-    }, 
-    {
-      "score": 0.07, 
-      "username": "linuxfoundation"
-    }, 
-    {
-      "score": 0.061224489795918366, 
-      "username": "3DHubs"
-    }, 
+    ...
     {
       "score": 0.05641025641025641, 
       "username": "makerfaire"
@@ -146,19 +131,11 @@ https://openmaker.herokuapp.com/scoreboard/sharing
     {
       "score": 0.045454545454545456, 
       "username": "makerbot"
-    }, 
-    {
-      "score": 0.045454545454545456, 
-      "username": "MakerShed"
-    }, 
+    },  
     {
       "score": 0.041884816753926704, 
       "username": "seeedstudio"
-    }, 
-    {
-      "score": 0.04, 
-      "username": "make"
-    }, 
+    },  
     {
       "score": 0.038461538461538464, 
       "username": "hamzaz"
@@ -166,18 +143,6 @@ https://openmaker.herokuapp.com/scoreboard/sharing
     {
       "score": 0.03783783783783784, 
       "username": "Raspberry_Pi"
-    }, 
-    {
-      "score": 0.035, 
-      "username": "fabbaloo"
-    }, 
-    {
-      "score": 0.031578947368421054, 
-      "username": "RealSexyCyborg"
-    }, 
-    {
-      "score": 0.030612244897959183, 
-      "username": "3dersorg"
     }, 
     {
       "score": 0.030303030303030304, 
@@ -191,110 +156,7 @@ https://openmaker.herokuapp.com/scoreboard/sharing
       "score": 0.025510204081632654, 
       "username": "indy_johar"
     }, 
-    {
-      "score": 0.025, 
-      "username": "3dsystems"
-    }, 
-    {
-      "score": 0.021052631578947368, 
-      "username": "3dprintindustry"
-    }, 
-    {
-      "score": 0.020618556701030927, 
-      "username": "hackaday"
-    }, 
-    {
-      "score": 0.020618556701030927, 
-      "username": "sparkfun"
-    }, 
-    {
-      "score": 0.020202020202020204, 
-      "username": "3d_printers"
-    }, 
-    {
-      "score": 0.02, 
-      "username": "RSComponents"
-    }, 
-    {
-      "score": 0.01639344262295082, 
-      "username": "instructables"
-    }, 
-    {
-      "score": 0.015, 
-      "username": "lifehacker"
-    }, 
-    {
-      "score": 0.011627906976744186, 
-      "username": "arduino"
-    }, 
-    {
-      "score": 0.010810810810810811, 
-      "username": "ColorFabb"
-    }, 
-    {
-      "score": 0.0106951871657754, 
-      "username": "adafruit"
-    }, 
-    {
-      "score": 0.010256410256410256, 
-      "username": "MicrochipMakes"
-    }, 
-    {
-      "score": 0.01015228426395939, 
-      "username": "imaterialise"
-    }, 
-    {
-      "score": 0.010101010101010102, 
-      "username": "ModMyPi"
-    }, 
-    {
-      "score": 0.010050251256281407, 
-      "username": "3DPrintBoard"
-    }, 
-    {
-      "score": 0.01, 
-      "username": "StackSocial"
-    }, 
-    {
-      "score": 0.005681818181818182, 
-      "username": "3dprinting"
-    }, 
-    {
-      "score": 0.005208333333333333, 
-      "username": "pimoroni"
-    }, 
-    {
-      "score": 0.005154639175257732, 
-      "username": "TheMagP1"
-    }, 
-    {
-      "score": 0.005154639175257732, 
-      "username": "Pi_Borg"
-    }, 
-    {
-      "score": 0.00510204081632653, 
-      "username": "RPiSpy"
-    }, 
-    {
-      "score": 0.005050505050505051, 
-      "username": "3dprinting3d"
-    }, 
-    {
-      "score": 0.005025125628140704, 
-      "username": "My3DPrinting"
-    }, 
-    {
-      "score": 0.005025125628140704, 
-      "username": "3DPrintGirl"
-    }, 
-    {
-      "score": 0.005025125628140704, 
-      "username": "3DPrintingFans"
-    }, 
-    {
-      "score": 0.005025125628140704, 
-      "username": "3DPrintingIt"
-    }, 
+    ...
     {
       "score": 0.005025125628140704, 
       "username": "androidcentral"

@@ -63,6 +63,7 @@ The general structure of access to a specific board is as follows:
 The API provides the query option to be able retrieve the score of a particular influencer determined by the WatchTower APP or any othe Tweeter user:
 
 https://openmaker.herokuapp.com/influencer/instructables
+````
 {
   "compositions": {
     "innovation": 0.14754098360655737, 
@@ -75,9 +76,12 @@ https://openmaker.herokuapp.com/influencer/instructables
   "ntweets": 183, 
   "openmakership": 0.6994535519125683
 }
+````
+
 Following query retrieves the score of a possible opinion leader who was not detected via the OpenWatcher:
 
 https://openmaker.herokuapp.com/influencer/indy_johar
+````
 {
   "compositions": {
     "collectiveness": 0.025510204081632654, 
@@ -91,6 +95,7 @@ https://openmaker.herokuapp.com/influencer/indy_johar
   "ntweets": 196, 
   "openmakership": 0.6020408163265306
 }
+````
 The location of the queried user can be checked on the scoreboard of 'openness' for example:
 
 https://openmaker.herokuapp.com/scoreboard/sharing

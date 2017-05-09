@@ -1,0 +1,6 @@
+*.pyc
+venv
+*.sh
+notebooks/
+staticfiles
+.env

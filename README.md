@@ -22,7 +22,10 @@ Check follwing guides for creation of pyhton environments:
 
 Once the repository installed on a local computer, replace the "https://openmaker.herokuapp.com/" part of the URL below with http://127.0.0.1:5000/
  
+````
 python run_wsgi.py
+````
+
 ## 3. The server URL of the API
 
 https://openmaker.herokuapp.com/

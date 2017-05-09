@@ -4,9 +4,9 @@
 
 This API is a prototype of a feature where OM-DSP users could be able to detect and explore the opinion leaders within the maker community.
 
-The feature provided by this API could also enable the DSP leaders or accalarators to explore and follow other makers with specific non-technical concerns or focuses.
+The feature provided by this API could also enable the DSP leaders or accelerators to explore and follow other makers with specific non-technical concerns or focuses.
 
-The API may enable the accalarators or other users of the DSP to check any Tweeter user's 'influence' on open-making related themes as well as be able to see their possible position on the opinion score board. 
+The API may enable the accelerators or other users of the DSP to check any Tweeter user's 'influence' on open-making related themes as well as be able to see their possible position on the opinion score board. 
 
 The API connects to the WatchTower APP and retrieves the list of influencers. It also connects to Twitter API to retrieve tweets of the designated influencers. It analyzes the textual contents of the latest tweets of the WatchTower influencers' as well as any other designated Twitter user.
 

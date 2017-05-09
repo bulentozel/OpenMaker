@@ -59,8 +59,9 @@ https://openmaker.herokuapp.com/scoreboard/sustainability
 Checking ,for instance, the scoreboard of the sustainability debators. Sustainability is discussions/tweets on environmental sustainability issues. 
 
 The general structure of access to a specific board is as follows:
-
-"https://openmaker.herokuapp.com/scoreboard/<category>" 
+````
+https://openmaker.herokuapp.com/scoreboard/<category>
+````
 
 ````
 <category>:{"openness","sharing","innovation","sustainability", "collectiveness"}

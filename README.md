@@ -11,7 +11,7 @@ The API connects to the WatchTower APP and retrieves the list of influencers. It
 ## 1. The OpenMaker Opinion Leaders APP
 A Jupyter notebook on the APP it self can be accessed [hereby](./OMLeaders.ipynb)
 
-## 2. Running this APP on a local computer instead of using it via the remote server
+## 2. Running this API on a local computer
 
 After having created the python environment using the [requirements file](./requirements.txt), run the python script which is given via this repository.
 

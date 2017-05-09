@@ -28,6 +28,7 @@ python run_wsgi.py
 https://openmaker.herokuapp.com/
 
 This returns the list of available category in json format:
+````
 {
   "categories": [
     "openness", 
@@ -38,6 +39,7 @@ This returns the list of available category in json format:
   ], 
   "status": "OpenMaker.EU meme analysis server is UP."
 }
+````
 ## 4. Retrieving the list of opinion leaders
 
 #### Retrieving the list of overall opinion leaders on OpenMaking: 
@@ -53,11 +55,10 @@ https://openmaker.herokuapp.com/scoreboard/sustainability
 Checking ,for instance, the scoreboard of the sustainability debators. Sustainability is discussions/tweets on environmental sustainability issues. 
 
 The general structure of access to a specific board is as follows:
-"https://openmaker.herokuapp.com/scoreboard/<category>"<category>:{"openness",
-            "sharing",
-            "innovation",
-            "sustainability",
-            "collectiveness"}
+"https://openmaker.herokuapp.com/scoreboard/<category>" 
+````
+<category>:{"openness","sharing","innovation","sustainability", "collectiveness"}
+````
 ## 5. Checking overall score of an influencer
 
 The API provides the query option to be able retrieve the score of a particular influencer determined by the WatchTower APP or any othe Tweeter user:
@@ -99,6 +100,7 @@ https://openmaker.herokuapp.com/influencer/indy_johar
 The location of the queried user can be checked on the scoreboard of 'openness' for example:
 
 https://openmaker.herokuapp.com/scoreboard/sharing
+```
 {
   "rankings": [
     {
@@ -296,5 +298,6 @@ https://openmaker.herokuapp.com/scoreboard/sharing
   ], 
   "type": "sharing"
 }
+````
 It should be noted that any tweeter username can be queried by follwing pattern:
 "https://openmaker.herokuapp.com/influencer/<username>"

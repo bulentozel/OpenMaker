@@ -157,5 +157,6 @@ It should be noted that any tweeter username can be queried by follwing pattern:
 
 "https://openmaker.herokuapp.com/influencer/<username>"
 
-<img src="https://github.com/openmaker-eu/socialmedia/blob/master/OpenMakerLogo.png" width="158">
-<img src="https://github.com/openmaker-eu/socialmedia/blob/master/Ekran%20Resmi%202017-01-11%2014.34.43.png" width="158">
+![alt-text-1](image1.png "title-1") ![alt-text-2](image2.png "title-2")
+
+!<img src="https://github.com/openmaker-eu/socialmedia/blob/master/OpenMakerLogo.png" width="158"> !<img src="https://github.com/openmaker-eu/socialmedia/blob/master/Ekran%20Resmi%202017-01-11%2014.34.43.png" width="158">

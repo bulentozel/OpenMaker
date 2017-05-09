@@ -1,3 +1,5 @@
+<img src="https://github.com/openmaker-eu/socialmedia/blob/master/OpenMakerLogo.png" width="158"><img src="https://github.com/openmaker-eu/socialmedia/blob/master/Ekran%20Resmi%202017-01-11%2014.34.43.png" width="158"><img src="./figure/logo_uzh.png">
+
 # The OpenMaker Opinion Leaders API
 
 This API is a prototype of a feature where OM-DSP users could be able to detect and explore the opinion leaders within the maker community.
@@ -157,6 +159,3 @@ It should be noted that any tweeter username can be queried by follwing pattern:
 
 "https://openmaker.herokuapp.com/influencer/<username>"
 
-
-
-<img src="https://github.com/openmaker-eu/socialmedia/blob/master/OpenMakerLogo.png" width="158"><img src="https://github.com/openmaker-eu/socialmedia/blob/master/Ekran%20Resmi%202017-01-11%2014.34.43.png" width="158">

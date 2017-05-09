@@ -157,5 +157,7 @@ https://openmaker.herokuapp.com/scoreboard/sharing
 ````
 It should be noted that any tweeter username can be queried by follwing pattern:
 
-"https://openmaker.herokuapp.com/influencer/<username>"
+````
+https://openmaker.herokuapp.com/influencer/<username>
+````
 

@@ -18,7 +18,9 @@ Todo:
 
 import requests, oauth2, json
 import pickle, csv
-import re
+import re, math
+
+from bokeh.models import ColumnDataSource
 
 class WatchTower:
 
@@ -47,11 +49,11 @@ class WatchTower:
 
 class Twitter:
 
-    Consumer_Key = ""  # API key
-    Consumer_Secret = ""  # API secret
+    Consumer_Key = "ciXEtj8xvEgcLPwBI9mP9Ajgy"  # API key
+    Consumer_Secret = "qfXrCVMeCIv1N8gE6ogpm2teM4DY3hOEIeMHLSvPNqXmiPNIQ2"  # API secret
 
-    Access_Token = ""
-    Access_Token_Secret = ""
+    Access_Token = "95098920-voyISmVRTqJaTl3o8nXc3WKFQUx5HZDhn434XEt4O"
+    Access_Token_Secret = "Lr1MMuCsEjMkESx9wI2MfPbc0osDhJzrcRzBSWJE1X3N2"
 
     url_api = "https://api.twitter.com/1.1/statuses/user_timeline.json?tweet_mode=extended"
 
@@ -70,9 +72,11 @@ class Twitter:
         request = Twitter.url_api + "&screen_name="+ auser + "&count=" + str(nlatest)
         response, data = self.Client.request(request)
         tweets = json.loads(data)
+        print"="*20
+        print auser, not isinstance(tweets, dict)
         if isinstance(tweets, dict):
-            message = "Error at Connection to Twitter API: {1}".format(tweets['errors'])
-            print "Connection errot to the account ", auser
+            message = tweets['errors'][0]['message']
+            print "Connection error to the account ", auser
             raise Exception(message)
         content = ""
         ntweet = 0
@@ -89,7 +93,7 @@ class Twitter:
         for user in userlist:
             try:
                 tweets[user] = self.accumulate_auser_tweets(user,nlatest)
-            except Exception:
+            except Exception as e:
                 tweets[user] = {"ntweets": 0, "content": ""}
         return tweets
 
@@ -253,8 +257,14 @@ class MakerDictionary:
         return results
 
     def get_category_name(self, code):
+        if code == -1: return('all')
         cat = self.categories.keys()[self.categories.values().index(code)]
-        return cat
+        return(cat)
+
+    def get_category_code(self, name):
+        if name == 'all': return(-1)
+        cat = self.categories.values()[self.categories.keys().index(name)]
+        return(cat)
 
     def _load_patterns(self):
         try:
@@ -308,7 +318,13 @@ class ScoreBoard:
         del self.table[actor]
         self.update_rankings()
 
+    def remove(self, actorlist):
+        for actor in actorlist:
+            del self.table[actor]
+        self.update_rankings()
+        
     def compute_rankings(self, category='all', stype = "per_tweet"):
+        if category == -1: category = 'all'
         rankings = {a:self.table[a]['scores'][category][stype]
                        for a in self.table.keys()
                        if category in self.table[a]['scores'].keys()}
@@ -316,6 +332,7 @@ class ScoreBoard:
         self.rankings[(category,stype)] = rankings
 
     def get_rankings_one(self, category='all', stype='per_tweet'):
+        if category == -1: category = 'all'
         key = (category,stype)
         if not key in self.rankings.keys():
             self.compute_rankings(category,stype)
@@ -323,9 +340,16 @@ class ScoreBoard:
         return rankings
 
     def get_score_one(self, actor, category='all', stype='per_tweet'):
+        if category == -1: category = 'all'
         if not actor in self.table.keys(): return
         if not category in self.table[actor]['scores'].keys(): return
         return self.table[actor]['scores'][category][stype]
+
+    def get_names(self, src='all'):
+        if src == -1: src = 'all'
+        if src == 'all':
+            return {k:v['source'] for k,v in self.table.items()}
+        return {k:v['source'] for k,v in self.table.items() if v['source'] == src}
 
     def get_scores(self, actor, categories, stype='per_tweet'):
         scores = dict()
@@ -345,10 +369,25 @@ class ScoreBoard:
 
     def post_scores(self, actor, features):
         self.table[actor] = {
+            'source':features['source'],
             'ntweets': features['ntweets'],
             'nwords': features['nwords'],
             'nmappings': features['nmappings'],
             'scores': ScoreBoard.compute_scores(features)}
+
+    def import_board(self, dboard = "./data/scoreboard.p"):
+        self.table = pickle.load(open(dboard, "rb"))
+
+    def store_the_board(self, dboard = "./data/scoreboard.p"):
+        pickle.dump(self.table, open("./data/scoreboard.p", "wb"))
+
+    def update_the_board(self, dboard = "./data/scoreboard.p"):
+        """
+        TODO:
+        Needs to be made incremental with DB implementation.
+        """
+        pickle.dump(self.table, open("./data/scoreboard.p", "wb"))
+            
 
 
 def extract_features(text, MDict):
@@ -363,11 +402,43 @@ def extract_features(text, MDict):
     return nmappings, nwords, counts
 
 
+def get_spiral_locations(npoints, center = {'x':0,'y':0}, diameters=10, teta = 0, delimiter=0):
+    """It computes and returns the coordinates of a spiral-like locations.
+
+        Args:
+            
+        Returns:
+            
+        Raises:
+            
+        """
+    coordinates=list()
+
+    x0 = center['x']
+    y0 = center['y']
+
+    diameters_list = diameters
+    if isinstance(diameters, int):
+        diameters_list = [diameters for i in range(npoints)]
+
+    coordinates.append((x0,y0))
+    cum_teta = teta
+    cum_r = diameters_list[0]
+    for i in range(1, npoints):
+        x = x0 + round(cum_r * math.cos(cum_teta))
+        y = y0 + round(cum_r * math.sin(cum_teta))
+        cum_teta += teta
+        cum_r += delimiter + diameters_list[i]
+        coordinates.append((x,y))
+
+    return coordinates
+
+
 
 if __name__ == '__main__':
     Client_WT = WatchTower()
     Client_Twitter = Twitter()
- 
+
     influencer_names = Client_WT.retrieve_influencers()
     debates = Client_Twitter.retrieve_tweets(influencer_names[0:5], 5)
 
@@ -377,20 +448,18 @@ if __name__ == '__main__':
         ntweets = debates[inf]['ntweets']
         text = debates[inf]['content']
         nmappings, nwords, counts = extract_features(text, MD)
-        features = {"ntweets":ntweets, "nwords":nwords, "nmappings":nmappings, "counts":counts}
+        features = {"source":0,"ntweets":ntweets, "nwords":nwords, "nmappings":nmappings, "counts":counts}
         SB.add_actor(inf, features)
 
-    
+
     for k, v in SB.table.items():
         print "_" * 20
         print k, v["ntweets"], v["nwords"], v["nmappings"]
         for type in v['scores'].keys():
             print type, v['scores'][type]
-    
+
 
     print "_" * 100
-    print "_" * 100
-
 
     SB.compute_rankings('0', 'per_word')
     SB.compute_rankings('5', 'per_word')
@@ -410,7 +479,7 @@ if __name__ == '__main__':
     print SB.get_rankings_one("3DPrintGirl")
     print SB.get_rankings_one("shapeways", "all", "per_tweet")
     print SB.get_rankings_one("ozel", "5", "per_tweet")
-    
+
 
 
 """ Example score table:

@@ -1,6 +1,9 @@
 # Local outputs
 ./Semantics/output/*
 
+# Mac cash files:
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

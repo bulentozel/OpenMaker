@@ -14,24 +14,39 @@ ClientTwitter = Twitter()
 MD = MakerDictionary()
 
 # Retrieving influencer lists:
-influencer_names = ClientWT.retrieve_influencers()
-print "Number of influencers from the WatchTower: ", len(influencer_names)
-
+WTInfluencers = ClientWT.retrieve_influencers()
+print "Number of influencers from the WatchTower: ", len(WTInfluencers)
 
 # Collecting tweets of the influencers:
-debates = ClientTwitter.retrieve_tweets(influencer_names, 200)
+debates = ClientTwitter.retrieve_tweets(WTInfluencers, 200)
+#debates = ClientTwitter.retrieve_tweets(WTInfluencers[0:3], 5)
+#debates = ClientTwitter.retrieve_tweets(WTInfluencers, 50)
+
+
+
+# Loading previous scoreboard:
+SB = ScoreBoard()
+try:
+    SB.import_board("./data/scoreboard.p")
+except IOError:
+    print "No previously stored Scoreboard is found."
+
 
 # Populating the score board:
-print "The user data retrieved from Twitter: "
-SB = ScoreBoard()
+print"The user data retrieved from Twitter: "  
 for inf in debates.keys():
     ntweets = debates[inf]['ntweets']
+    if not ntweets: continue
     text = debates[inf]['content']
     nmappings, nwords, counts = extract_features(text, MD)
-    features = {"ntweets":ntweets, "nwords":nwords, "nmappings":nmappings, "counts":counts}
+    features = {"source":0,"ntweets":ntweets, "nwords":nwords, "nmappings":nmappings, "counts":counts}
     SB.post_scores(inf, features)
     print inf, ntweets, nmappings, nwords
- 
+
+
+# Store the baord:
+SB.store_the_board("./data/scoreboard.p")
+
 # Initialization of app and auhentication:
 app = Flask(__name__, static_url_path="")
 auth = HTTPBasicAuth()

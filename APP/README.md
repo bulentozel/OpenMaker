@@ -10,8 +10,14 @@ The API may enable the accelerators or other users of the DSP to check any Tweet
 
 The API connects to the WatchTower APP and retrieves the list of influencers. It also connects to Twitter API to retrieve tweets of the designated influencers. It analyzes the textual contents of the latest tweets of the WatchTower influencers' as well as any other designated Twitter user.
 
+The APP has both a graphical (GUI) and a programming interface (API). Both interfaces are deployed on cloud server. They can however be run on local computer.
+
+## GUI: OpenMaker Compunity Spirometer
+### Live (limited by Twitter API and the cloud server resources.)
+ * [https://openmaker.herokuapp.com/gui](https://openmaker.herokuapp.com/gui)
+
 ## 1. The OpenMaker Opinion Leaders APP
-A Jupyter notebook on the APP it self can be accessed [hereby](./OMLeaders.ipynb)
+A Jupyter notebook on the APP itself can be accessed [hereby](./OMLeaders.ipynb)
 
 ## 2. Running this API on a local computer
 

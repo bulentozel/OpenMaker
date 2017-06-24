@@ -23,8 +23,8 @@ Previously harvested and analyzed data is served.
 
 ### Online live (limited by Twitter API and the cloud server resources.) version:
 The live version can be used to query and discover additional Twitter user profiles on the OpenMaker spirals.
- * [https://openmaker.herokuapp.com/gui](https://openmaker.herokuapp.com/gui) or
- * [https://openmaker.herokuapp.com/gui/<username>](https://openmaker.herokuapp.com/gui) 
+ * [https://openmaker.herokuapp.com/gui](https://openmaker.herokuapp.com/gui) or by starting with a twitter user:
+ * [https://openmaker.herokuapp.com/gui/ausername](https://openmaker.herokuapp.com/gui) 
  
 ## Notebook:
 A Jupyter notebook on the APP itself can be accessed [hereby](./OMLeaders.ipynb)

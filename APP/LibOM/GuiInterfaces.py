@@ -253,12 +253,13 @@ def bokehGUI(ScoreBoard, MakerDictionary,
              denotes the number of tweeters collected for the profiling, <b>per_tweet</b>
              denotes that scores are computed per tweet.</p>
       
-            <p>If the queried influencer is not spotted on the spiral, you can
-            use the address bar to add it to the spirals by appending
-            the @tweeter username of the user to the address, such as,
+            <p>A new influencer can be added. In order to do so, please use the address bar.
+            Address bar can be used to query an influencer whose profile is not analyzed yet.
+            Note that a twitter user name is the part after @ sign. For instance the Twitter user
+             @arduino can be added by appaending it to the /gui/:
             <i>.../gui/arduino</i>.
             </p>
-            <p>If needed, use the search box below in order to query existing ones.</p>
+            <p>For the users whose profiling has already been done, the search bar below can be used. </p>
             </small>
             """, width=200, height = 250)
     tips_box = widgetbox(div_tips,sizing_mode='scale_both',responsive=True)

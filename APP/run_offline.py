@@ -16,6 +16,6 @@ def display():
     board = SB.import_board("./data/scoreboard.p")
     layout = bokehGUI(SB, MD, offlineboard=board)
     show(layout)
-    
+
 if __name__ == '__main__': display()
 

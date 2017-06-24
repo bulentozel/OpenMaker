@@ -3,7 +3,7 @@ from flask import jsonify, abort, request, make_response, url_for, render_templa
 from flask_service import *
 from LibOM.Tools import *
 from LibOM.GuiInterfaces import *
-from LibOM.GuiControlers import *
+#from LibOM.GuiControlers import *
 
 from bokeh.embed import components
 

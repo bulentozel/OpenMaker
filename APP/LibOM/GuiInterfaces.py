@@ -170,6 +170,7 @@ class BokehControler:
             slice[column] = data
         return slice
 
+
 def bokehGUI(ScoreBoard, MakerDictionary,
              offlineboard='None',
              curMeme="sustainability",
@@ -211,7 +212,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
 
     ## The Influencer Canvas::
     title = "Influencer"
-    fig_influencer = figure(plot_width=500, plot_height=350, title=title, tools=TOOLS, toolbar_location="above",
+    fig_influencer = figure(plot_width=550, plot_height=350, title=title, tools=TOOLS, toolbar_location="above",
                toolbar_sticky=True, active_drag="pan", active_tap='tap', active_scroll='wheel_zoom', responsive=True)
 
     fig_influencer.axis.visible = False
@@ -253,7 +254,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
     #for k in BI.ActiveBoard.data.keys(): print(k, BI.ActiveBoard.data[k])
 
     title_board = "Community Spirometer"
-    fig_board = figure(plot_width=750, plot_height=500, title=title_board, tools=TOOLS, toolbar_location="above",
+    fig_board = figure(plot_width=800, plot_height=500, title=title_board, tools=TOOLS, toolbar_location="above",
                toolbar_sticky=True, active_drag="pan", active_tap='tap', active_scroll='wheel_zoom', responsive=True)
     fig_board.axis.visible = False
     fig_board.border_fill_color = "whitesmoke"
@@ -403,9 +404,14 @@ def bokehGUI(ScoreBoard, MakerDictionary,
     div_title = Div(text="""
                 <h3> OpenMaker Community Spirometer</h3>
                 <p>The sprirometer is a way to observe opionion leaders and influencers of the community,
-                those who promote values of the open making or open making friendly social values.</p>
-                <p><small>The data is collected from the tweets that are in the public domain.</small></p>
-                """, width=700, height=100)
+                those who promote values of the open making or open making friendly social values.
+                
+                <p><small>Influential actors are placed rather in the core of the spiral. See the lower interactive panel.
+                An infleuncer's spiral profile, as of his/her contribution to the maker movement related debates,
+                can be seen via the upper interactive panel.
+                
+                The data is collected from the tweets that are in the public domain.</small></p>
+                """, width=750, height=120)
     title_box = widgetbox(div_title, sizing_mode='scale_both', responsive=True)
 
     ## Tips Box::
@@ -415,15 +421,14 @@ def bokehGUI(ScoreBoard, MakerDictionary,
              denotes the number of tweeters collected for the profiling, <b>per_tweet</b>
              denotes that scores are computed per tweet.</p>
       
-            <p>A new influencer can be added. In order to do so, please use the address bar.
-            Address bar can be used to query an influencer whose profile is not analyzed yet.
-            Note that a twitter user name is the part after @ sign. For instance the Twitter user
-             @arduino can be added by appaending it to the /gui/:
-            <i>.../gui/arduino</i>.
+            <p>A new influencer can be added. Address bar can be used to query an influencer
+            whose profile is not analyzed yet. Note that a twitter user name is the part after @ sign.
+            For instance, the Twitter user <i>@arduino</i> can be added by appaending <b>arduiono</b> to the URL:
+            <i>BASE_URL/gui/arduino</i>
             </p>
-            <p>For the users whose profiling has already been done, the search bar below can be used. </p>
+            <p>To query the users whose profiling has already been included, the search bar below can be used. </p>
             </small>
-            """, width=200, height = 250)
+            """, width=200, height = 260)
     tips_box = widgetbox(div_tips,sizing_mode='scale_both',responsive=True)
 
     ## Query Box::

@@ -13,7 +13,7 @@ The API connects to the WatchTower APP and retrieves the list of influencers. It
 The APP has both a graphical (GUI) and a programming interface (API). Both interfaces are deployed on cloud server. They can however be run on local computer.
 
 ## GUI: OpenMaker Compunity Spirometer Offline version:
-* Download [spirometer.html](./spirometer.html) and open it with your prefered browser. This is a datastatic version, that is, it doesn't connect to the OpenMaker WatchTower or Twitter for new profiling.
+* Download the repository or clone it. Open [spirometer.html](./spirometer.html) from your local disk with your prefered browser. This is a datastatic version, that is, it doesn't connect to the OpenMaker WatchTower or Twitter for new profiling.
 
 ## GUI: OpenMaker Compunity Spirometer Online version
 

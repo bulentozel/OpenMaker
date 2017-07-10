@@ -20,6 +20,8 @@ import requests, oauth2, json
 import pickle, csv
 import re, math
 
+from sklearn.cluster import KMeans
+
 from bokeh.models import ColumnDataSource
 
 class WatchTower:
@@ -432,6 +434,121 @@ def get_spiral_locations(npoints, center = {'x':0,'y':0}, diameters=10, teta = 0
         coordinates.append((x,y))
 
     return coordinates
+
+
+def get_new_spiral_locations(scores, ntier = 6, smax=None, center={'x': 0, 'y': 0}, diameters=10):
+    """It computes and returns the coordinates of a spiral-like locations.
+
+        Args:
+            scores (list of float): The list scores that is sorted in a descending manner.
+
+        Returns:
+
+        Raises:
+
+        """
+    coordinates = list()
+    R = list()
+    Angle = list()
+
+    x0 = center['x']
+    y0 = center['y']
+    npoints = len(scores)
+
+    if not smax: smax = scores[0]
+
+    # The length of a tier. This should be converted into an input: A list of ranges of scores for each tear.
+    ltier = smax / ntier
+
+    diameters_list = diameters
+    if isinstance(diameters, int):
+        diameters_list = [diameters for i in range(npoints)]
+
+    distances = [smax - s for s in scores]
+    cum_size = 0
+    coordinates.append((x0, y0))
+    for i in range(1,npoints):
+        tier, rotation = divmod(distances[i],ltier)
+        teta = (tier + rotation / ltier) * 2 * math.pi
+        r = 50 * distances[i] + cum_size
+        x = x0 + round(r * math.cos(teta))
+        y = y0 + round(r * math.sin(teta))
+        cum_size += diameters_list[i]
+        coordinates.append((x, y))
+        R.append(r)
+        Angle.append(teta)
+
+    return (coordinates,Angle,R)
+
+
+def get_drifted_spiral_locations(npoints, scores, center={'x': 0, 'y': 0}, diameters=10, teta=0, delimiter=0):
+    """It computes and returns the coordinates of a spiral-like locations.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        """
+    coordinates = list()
+
+    x0 = center['x']
+    y0 = center['y']
+
+    diameters_list = diameters
+    if isinstance(diameters, int):
+        diameters_list = [diameters for i in range(npoints)]
+
+    distances = list()
+    distances.append(0)
+    S_pre = scores[0]
+    for S in scores[1:]:
+        dS = S_pre - S
+        distances.append(dS)
+        S_pre = S
+
+    max_dS = max(distances)
+    if max_dS < 0.01: max_dS = 0.01
+
+    coordinates.append((x0, y0))
+    cum_teta = 0
+    cum_r = 0
+    for i in range(1, npoints):
+        drift = distances[i] / max_dS
+        cum_teta += teta * (1 + 2 * drift)
+        if drift: cum_r += delimiter * (1 + 2 * drift)
+        x = x0 + round(cum_r * math.cos(cum_teta))
+        y = y0 + round(cum_r * math.sin(cum_teta))
+        coordinates.append((x, y))
+
+    return coordinates
+
+def determine_tiers(scores, n_tiers=6):
+    X = [[s] for s in scores]
+    kmeans = KMeans(n_clusters=n_tiers).fit(X)
+    labels = list(kmeans.labels_)
+    return(labels)
+
+def mark_alternates(levels,sizes):
+    marks = list()
+    altered = False
+    tag = levels[0]
+    for i,l in enumerate(levels):
+        if tag != l:
+            altered = not altered
+            tag = l
+        if altered:
+            marks.append(sizes[i]/3)
+        else:
+            marks.append(0)
+    return(marks)
+
+
+
+
+
+
 
 
 

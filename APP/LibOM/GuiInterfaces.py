@@ -1,3 +1,4 @@
+import math
 from LibOM.Tools import *
 #from LibOM.GuiControlers import *
 
@@ -6,6 +7,7 @@ from bokeh.models import ColumnDataSource, CustomJS,OpenURL,TapTool,HoverTool,La
 from bokeh.plotting import figure
 from bokeh.models.widgets import Div, AutocompleteInput
 from bokeh.layouts import row, column, widgetbox
+from bokeh.models.widgets import DataTable, TableColumn, NumberFormatter
 
 
 class BokehControler:
@@ -99,7 +101,8 @@ class BokehControler:
     def populateBoards(self,categories,
                        stype='per_tweet',
                        origin={'x': 0, 'y': 0},
-                       rotation = math.pi / 6):
+                       rotation = math.pi / 12):
+        epsTeta = 0.2
         Xpoints = list()
         Ypoints = list()
         Colors = list()
@@ -107,6 +110,7 @@ class BokehControler:
         Names = list()
         Sizes = list()
         Scores = list()
+        Levels = list()
         Offsets = list()
         Tweets = list()
         categories.append(-1)
@@ -114,20 +118,86 @@ class BokehControler:
             ranks = self.SB.get_rankings_one(category=cat, stype=stype)
             names = [x[0] for x in ranks]
             npoints = len(names)
-            scores = [x[1] for x in ranks]
-            #sizes = [20 for w in scores]
-            sizes = [round(w * 50 + 10) for w in scores]
-            offsets = [x / 1.8 for x in sizes]
-            coordinates = get_spiral_locations(npoints, center=origin, diameters=sizes, teta=rotation)
-            colors = ['turquoise'] * npoints
             memes = [self.MD.get_category_name(cat)] * npoints
             tweets = [self.SB.table[name]['ntweets'] for name in names]
+            scores = [x[1] for x in ranks]
+            #sizes = [round(w * 50 + 10) for w in scores]
+            sizes =  [round(15 * t/100 + 10) for t in tweets]
+            levels = determine_tiers(scores, n_tiers=6)
+            levels = mark_alternates(levels, sizes)
+            offsets = [x / 1.8 for x in sizes]
+            #coordinates = get_spiral_locations(npoints, center=origin, diameters=sizes, teta=rotation)
+            #coordinates,Angle,R = get_new_spiral_locations(scores, ntier=2, smax=None, center=origin, diameters=sizes)
+            coordinates = get_drifted_spiral_locations(npoints, scores, center=origin, diameters=sizes, teta=rotation, delimiter=20)
+            xcoord = [coord[0] for coord in coordinates]
+            ycoord = [coord[1] for coord in coordinates]
+
+            colors = ['turquoise'] * npoints
+
+
+            """
+            namesX = list()
+            scoresX = list()
+            sizesX = list()
+            xcoordX = list()
+            ycoordX = list()
+            colorsX = list()
+            memesX = list()
+            offsetsX = list()
+            tweetsX = list()
+            for i in range(len(Angle) - 1):
+                xcoordX.append(xcoord[i])
+                ycoordX.append(ycoord[i])
+                namesX.append(names[i])
+                scoresX.append(scores[i])
+                sizesX.append(sizes[i])
+                colorsX.append(colors[i])
+                memesX.append(memes[i])
+                offsetsX.append(offsets[i])
+                tweetsX.append(tweets[i])
+
+                curA = Angle[i]
+                curR = R[i]
+                dA = Angle[i+1] - curA
+                nphantoms = int(divmod(dA, epsTeta)[0])
+                if nphantoms < 4: continue
+                dR = (R[i + 1] - curR) / nphantoms
+                print(curA,curR,dA,nphantoms,epsTeta)
+                for k in range(nphantoms):
+                    teta = curA + (k + 1) * epsTeta
+                    r = curR + (k + 1) * dR
+
+                    print(teta,r)
+
+                    x = origin['x'] + round(r * math.cos(teta))
+                    y = origin['y'] + round(r * math.sin(teta))
+                    xcoordX.append(x)
+                    ycoordX.append(y)
+                    namesX.append('')
+                    scoresX.append(0)
+                    sizesX.append(1)
+                    colorsX.append('white')
+                    memesX.append('')
+                    offsetsX.append(0)
+                    tweetsX.append(0)
+
+            xcoordX.append(xcoord[-1])
+            ycoordX.append(ycoord[-1])
+            namesX.append(names[-1])
+            scoresX.append(scores[-1])
+            sizesX.append(sizes[-1])
+            colorsX.append(colors[-1])
+            memesX.append(memes[-1])
+            offsetsX.append(offsets[-1])
+            tweetsX.append(tweets[-1])
+            """
 
             Names.extend(names)
             Scores.extend(scores)
+            Levels.extend(levels)
             Sizes.extend(sizes)
-            Xpoints.extend([coord[0] for coord in coordinates])
-            Ypoints.extend([coord[1] for coord in coordinates])
+            Xpoints.extend(xcoord)
+            Ypoints.extend(ycoord)
             Colors.extend(colors)
             Memes.extend(memes)
             Offsets.extend(offsets)
@@ -142,6 +212,7 @@ class BokehControler:
             offsets=Offsets,
             memes=Memes,
             scores=Scores,
+            levels=Levels,
             tweets=Tweets
         ))
         self.Boards = source
@@ -212,7 +283,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
 
     ## The Influencer Canvas::
     title = "Influencer"
-    fig_influencer = figure(plot_width=550, plot_height=350, title=title, tools=TOOLS, toolbar_location="above",
+    fig_influencer = figure(plot_width=600, plot_height=450, title=title, tools=TOOLS, toolbar_location="above",
                toolbar_sticky=True, active_drag="pan", active_tap='tap', active_scroll='wheel_zoom', responsive=True)
 
     fig_influencer.axis.visible = False
@@ -254,7 +325,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
     #for k in BI.ActiveBoard.data.keys(): print(k, BI.ActiveBoard.data[k])
 
     title_board = "Community Spirometer"
-    fig_board = figure(plot_width=800, plot_height=500, title=title_board, tools=TOOLS, toolbar_location="above",
+    fig_board = figure(plot_width=850, plot_height=500, title=title_board, tools=TOOLS, toolbar_location="above",
                toolbar_sticky=True, active_drag="pan", active_tap='tap', active_scroll='wheel_zoom', responsive=True)
     fig_board.axis.visible = False
     fig_board.border_fill_color = "whitesmoke"
@@ -272,7 +343,8 @@ def bokehGUI(ScoreBoard, MakerDictionary,
 
     ### Data:::
     fig_board.line('x','y', alpha=0.4, line_width=1, line_dash="dashed", source=board)
-    fig_board.circle('x','y', color='colors', size='sizes', alpha=0.8, source=board)
+    fig_board.circle('x', 'y', color='black', size='levels', alpha=1, source=board)
+    fig_board.circle('x', 'y', color='colors', size='sizes', alpha=0.8, source=board)
     labels = LabelSet(x='x', y='y', text='names', text_font_size='7pt', level='glyph', x_offset='offsets', y_offset=0,
                       source=board, render_mode='canvas')
     fig_board.add_layout(labels)
@@ -357,6 +429,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
             d3['y'] = [];
             d3['sizes'] = [];
             d3['scores'] = [];
+            d3['levels'] = [];
             d3['names'] = [];
             d3['memes'] = [];
             d3['offsets'] = [];
@@ -382,6 +455,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
                 d3['y'].push(d2['y'][i]);
                 d3['sizes'].push(d2['sizes'][i]);
                 d3['scores'].push(d2['scores'][i]);
+                d3['levels'].push(d2['levels'][i]);
                 d3['names'].push(d2['names'][i]);
                 d3['memes'].push(d2['memes'][i]);
                 d3['offsets'].push(d2['offsets'][i]);
@@ -402,21 +476,27 @@ def bokehGUI(ScoreBoard, MakerDictionary,
 
     ## Info Box::
     div_title = Div(text="""
-                <h3> OpenMaker Community Spirometer</h3>
+                <h2> OpenMaker Community Spirometer</h2>
                 <p>The sprirometer is a way to observe opionion leaders and influencers of the community,
                 those who promote values of the open making or open making friendly social values.
                 
-                <p><small>Influential actors are placed rather in the core of the spiral. See the lower interactive panel.
+                <p>Influential actors are placed rather in the core of the spiral. See the lower interactive panel.
                 An infleuncer's spiral profile, as of his/her contribution to the maker movement related debates,
-                can be seen via the upper interactive panel.
+                can be seen via the upper interactive panel.</p>
                 
-                The data is collected from the tweets that are in the public domain.</small></p>
-                """, width=750, height=120)
+                <p>The data is collected from the tweets that are in the public domain.
+                The latest tweets in English of an infleuncer is used for the analysis and visualizations. 
+                The nodes on the spirometer (the lower panel) are resized according to the number tweets
+                by the corresponding influencer.</p>
+                
+                 <p>Influencers are clustered according to their sphere of influence.
+                 There are 6 distinct clusters on each spiral. 
+                 A consequence of nodes with/without an inner circle denotes membership to the same cluster. </p>
+                """, width=850, height=220)
     title_box = widgetbox(div_title, sizing_mode='scale_both', responsive=True)
 
     ## Tips Box::
     div_tips = Div(text="""
-            <small>
             <p>Hover over the nodes in order to see the details. <b>Ntweets</b>
              denotes the number of tweeters collected for the profiling, <b>per_tweet</b>
              denotes that scores are computed per tweet.</p>
@@ -427,8 +507,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
             <i>BASE_URL/gui/arduino</i>
             </p>
             <p>To query the users whose profiling has already been included, the search bar below can be used. </p>
-            </small>
-            """, width=200, height = 260)
+            """, width=200, height = 350)
     tips_box = widgetbox(div_tips,sizing_mode='scale_both',responsive=True)
 
     ## Query Box::
@@ -494,8 +573,29 @@ def bokehGUI(ScoreBoard, MakerDictionary,
     text_input.js_on_change('value', callback_search)
     query_box = widgetbox(text_input,sizing_mode='stretch_both', responsive=True)
 
+    # Tabular Data
+
+    ## Info Box::
+    div_scorebord_info = Div(text="""
+                    <h3>Spirometer Details</h3>
+                    <p>Tap to column names in order to sort accordingly.
+                    </p>
+                    """, width=750, height=50)
+    title_table = widgetbox(div_scorebord_info, sizing_mode='scale_both', responsive=True)
+
+    Nformatter = NumberFormatter()
+    Nformatter.format = "0,0.000"
+    columns = [
+        TableColumn(field="names", title="Name"),
+        TableColumn(field="memes", title="Category"),
+        TableColumn(field="scores", title="Score", formatter=Nformatter),
+        TableColumn(field="tweets", title="Number of Tweets")
+    ]
+    data_table = DataTable(source=boards, columns=columns, width=820, height=500)
+    table_box = widgetbox(data_table,sizing_mode='stretch_both', responsive=True)
+
     # Overall Layout::::
-    layout = column(title_box, row(fig_influencer, column(tips_box,query_box)), fig_board)
+    layout =  column(title_box, row(fig_influencer, column(tips_box,query_box)), fig_board,title_table, table_box)
 
     return(layout)
 

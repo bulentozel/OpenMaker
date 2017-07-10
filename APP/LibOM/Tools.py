@@ -524,7 +524,9 @@ def get_drifted_spiral_locations(npoints, scores, center={'x': 0, 'y': 0}, diame
 
     return coordinates
 
-def determine_tiers(scores, n_tiers=6):
+def determine_tiers(scores, n_tiers=None, window=0.25):
+    if not n_tiers:
+        n_tiers = max(int(max(scores)/window),4)
     X = [[s] for s in scores]
     kmeans = KMeans(n_clusters=n_tiers).fit(X)
     labels = list(kmeans.labels_)

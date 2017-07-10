@@ -102,7 +102,6 @@ class BokehControler:
                        stype='per_tweet',
                        origin={'x': 0, 'y': 0},
                        rotation = math.pi / 12):
-        epsTeta = 0.2
         Xpoints = list()
         Ypoints = list()
         Colors = list()
@@ -123,7 +122,7 @@ class BokehControler:
             scores = [x[1] for x in ranks]
             #sizes = [round(w * 50 + 10) for w in scores]
             sizes =  [round(15 * t/100 + 10) for t in tweets]
-            levels = determine_tiers(scores, n_tiers=6)
+            levels = determine_tiers(scores)
             levels = mark_alternates(levels, sizes)
             offsets = [x / 1.8 for x in sizes]
             #coordinates = get_spiral_locations(npoints, center=origin, diameters=sizes, teta=rotation)
@@ -490,7 +489,9 @@ def bokehGUI(ScoreBoard, MakerDictionary,
                 by the corresponding influencer.</p>
                 
                  <p>Influencers are clustered according to their sphere of influence.
-                 There are 6 distinct clusters on each spiral. 
+                 There are 4 or more distinct clusters on each spiral.
+                 Number of clusters and cluster membership is algorithmically generated from the data.
+                 
                  A consequence of nodes with/without an inner circle denotes membership to the same cluster. </p>
                 """, width=850, height=220)
     title_box = widgetbox(div_title, sizing_mode='scale_both', responsive=True)
@@ -503,7 +504,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
       
             <p>A new influencer can be added. Address bar can be used to query an influencer
             whose profile is not analyzed yet. Note that a twitter user name is the part after @ sign.
-            For instance, the Twitter user <i>@arduino</i> can be added by appaending <b>arduiono</b> to the URL:
+            For instance, the Twitter user <i>@arduino</i> can be added by appending <b>arduiono</b> to the URL:
             <i>BASE_URL/gui/arduino</i>
             </p>
             <p>To query the users whose profiling has already been included, the search bar below can be used. </p>

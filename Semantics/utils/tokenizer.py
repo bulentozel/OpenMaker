@@ -1,6 +1,6 @@
 import re
 
-ALLOWED_SYMBOLS = list("abcdefghijklmnopqrstuvwxyz1234567890 \n.,():;-!?'\"")
+ALLOWED_SYMBOLS = list("abcdefghijklmnopqrstuvwxyz1234567890 \n.,():;-!?\"")
 CHARACTERS_TO_SPLIT = """.,():;!?\n\""""
 REPLACEMENTS = {
     "\x05": " ",
@@ -23,6 +23,7 @@ def normalise(s):
     :param s: input string
     :return: normalised string
     """
+ 
     s = s.encode("ascii", "ignore").decode("ascii")
     s = s.lower()
     s = s.strip()

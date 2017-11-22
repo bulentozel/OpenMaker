@@ -16,9 +16,9 @@ The APP has both a graphical (GUI) and a programming interface (API). Both inter
 The GUI prototype is developed for demonstrational purposes. It aims to present ideas about how data provided by the API can be used for a better user experience.
 
 ## 1. GUI: OpenMaker Community Spirometer offline datastatic version
-In order to play with the GUI you can simply download the [spirometer.html](./spirometer.html) to your local disk and open it with your prefered browser. However, note that this is a datastatic version, that is, it doesn't connect to the OpenMaker WatchTower or Twitter for new queries and new profiling.
+In order to play with the GUI **first download this repo** and then open the file [spirometer.html](./spirometer.html) with your preferred browser. However, note that this is a datastatic version, that is, it doesn't connect to the OpenMaker WatchTower or Twitter for new queries and new profiling.
 
-## 2. GUI: OpenMaker Compunity Spirometer online version
+## 2. GUI: OpenMaker Community Spirometer online version
 
 ### i) Online static data version:
 The online data static version is served at follwing link. It uses previously harvested and analyzed data: 

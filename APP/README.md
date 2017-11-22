@@ -25,11 +25,16 @@ The online data static version is served at follwing link. It uses previously ha
  * [http://178.62.229.16:5000/gui/datastatic](http://178.62.229.16:5000/gui/datastatic)
 
 ### ii) Online live version:
-The live version can be used to query and discover additional Twitter user profiles on the OpenMaker spirals.
- * [http://178.62.229.16:5000/gui](http://178.62.229.16:5000/gui) or by starting with a twitter user:
- * [http://178.62.229.16:5000/gui/ausername](http://178.62.229.16:5000/gui)
+The live version can be used to query and discover additional Twitter user profiles on the OpenMaker spirals:
+ * [http://178.62.229.16:5000/gui](http://178.62.229.16:5000/gui)
  
- Please note that in the current version the total number of additional queries that can be placed within a half an hour is limited by (limited by Twitter API it uses. 
+ There any twitter user can be queried:
+ ````
+ http://178.62.229.16:5000/gui/<aValidTwitterUserName>
+ ````
+ Such as [http://178.62.229.16:5000/gui/bulentozel](http://178.62.229.16:5000/gui/bulentozel)
+ 
+ Please note that in the current version the total number of additional queries that can be placed within a half an hour is limited by by Twitter API. 
 
 # B. Notebook
 A Jupyter notebook on the functionalities and modules of APP itself can be accessed [hereby](./OMLeaders.ipynb)

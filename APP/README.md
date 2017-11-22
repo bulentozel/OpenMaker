@@ -19,12 +19,12 @@ The APP has both a graphical (GUI) and a programming interface (API). Both inter
 
 ### Online Datastatic version:
 Previously harvested and analyzed data is served. 
- * [https://openmaker.herokuapp.com/gui/datastatic](https://openmaker.herokuapp.com/gui/datastatic)
+ * [http://178.62.229.16:5000/gui/datastatic](http://178.62.229.16:5000/gui/datastatic)
 
 ### Online live (limited by Twitter API and the cloud server resources.) version:
 The live version can be used to query and discover additional Twitter user profiles on the OpenMaker spirals.
- * [https://openmaker.herokuapp.com/gui](https://openmaker.herokuapp.com/gui) or by starting with a twitter user:
- * [https://openmaker.herokuapp.com/gui/ausername](https://openmaker.herokuapp.com/gui) 
+ * [http://178.62.229.16:5000//gui](http://178.62.229.16:5000//gui) or by starting with a twitter user:
+ * [http://178.62.229.16:5000//gui/ausername](http://178.62.229.16:5000/gui) 
  
 ## Notebook:
 A Jupyter notebook on the APP itself can be accessed [hereby](./OMLeaders.ipynb)
@@ -37,7 +37,7 @@ Check follwing guides for creation of pyhton environments:
 - http://stackoverflow.com/questions/7225900/how-to-pip-install-packages-according-to-requirements-txt-from-a-local-directory
 - http://python-guide-pt-br.readthedocs.io/en/latest/dev/virtualenvs/
 
-Once the repository installed on a local computer, , see [requirements.txt](./requirements.txt), replace the "https://openmaker.herokuapp.com/" part of the URL below with http://127.0.0.1:5000/
+Once the repository installed on a local computer, , see [requirements.txt](./requirements.txt), replace the "http://178.62.229.16:5000/" part of the URL below with http://127.0.0.1:5000/
  
 ````
 python run_wsgi.py
@@ -45,7 +45,7 @@ python run_wsgi.py
 
 ## TheServer URLs fo the API Version
 
-https://openmaker.herokuapp.com/
+http://178.62.229.16:5000/
 
 This returns the list of available category in json format:
 ````
@@ -70,13 +70,13 @@ The score at the moment is generated using a built-in dictionary, where a predet
 
 #### Retrieveing the list of opinion leaders on a specific theme:
 
-https://openmaker.herokuapp.com/scoreboard/sustainability
+http://178.62.229.16:5000/scoreboard/sustainability
 
 Checking ,for instance, the scoreboard of the sustainability debators. Sustainability is discussions/tweets on environmental sustainability issues. 
 
 The general structure of access to a specific board is as follows:
 ````
-https://openmaker.herokuapp.com/scoreboard/<category>
+http://178.62.229.16:5000/scoreboard/<category>
 ````
 
 ````
@@ -86,7 +86,7 @@ https://openmaker.herokuapp.com/scoreboard/<category>
 
 The API provides the query option to be able retrieve the score of a particular influencer determined by the WatchTower APP or any othe Tweeter user:
 
-https://openmaker.herokuapp.com/influencer/instructables
+http://178.62.229.16:5000/influencer/instructables
 ````
 {
   "compositions": {
@@ -104,7 +104,7 @@ https://openmaker.herokuapp.com/influencer/instructables
 
 Following query retrieves the score of a possible opinion leader who was not detected via the OpenWatcher:
 
-https://openmaker.herokuapp.com/influencer/indy_johar
+http://178.62.229.16:5000/influencer/indy_johar
 ````
 {
   "compositions": {
@@ -122,7 +122,7 @@ https://openmaker.herokuapp.com/influencer/indy_johar
 ````
 The location of the queried user can be checked on the scoreboard of 'openness' for example:
 
-https://openmaker.herokuapp.com/scoreboard/sharing
+http://178.62.229.16:5000/scoreboard/sharing
 ```
 {
   "rankings": [
@@ -175,6 +175,6 @@ https://openmaker.herokuapp.com/scoreboard/sharing
 It should be noted that any tweeter username can be queried by follwing pattern:
 
 ````
-https://openmaker.herokuapp.com/influencer/<username>
+http://178.62.229.16:5000/influencer/<username>
 ````
 

@@ -47,7 +47,7 @@ Check follwing guides for creation of pyhton environments:
 - http://stackoverflow.com/questions/7225900/how-to-pip-install-packages-according-to-requirements-txt-from-a-local-directory
 - http://python-guide-pt-br.readthedocs.io/en/latest/dev/virtualenvs/
 
-Once the repository installed on a local computer, , see [requirements.txt](./requirements.txt), replace the "http://178.62.229.16:5000/" part of the URL below with http://127.0.0.1:5000/
+Once the repository installed on a local computer, see [requirements.txt](./requirements.txt), replace the "http://178.62.229.16:5000/" part of the URL below with http://127.0.0.1:5000/
  
 ````
 python run_wsgi.py

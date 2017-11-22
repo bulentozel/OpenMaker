@@ -20,11 +20,11 @@ In order to play with the GUI you can simply download the [spirometer.html](./sp
 
 ## 2. GUI: OpenMaker Compunity Spirometer online version
 
-### i) Online datastatic version:
+### i) Online static data version:
 The online data static version is served at follwing link. It uses previously harvested and analyzed data: 
  * [http://178.62.229.16:5000/gui/datastatic](http://178.62.229.16:5000/gui/datastatic)
 
-### ii) Online live version:
+### ii) Online live data version:
 The live version can be used to query and discover additional Twitter user profiles on the OpenMaker spirals:
  * [http://178.62.229.16:5000/gui](http://178.62.229.16:5000/gui)
  

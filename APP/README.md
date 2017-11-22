@@ -30,9 +30,26 @@ The live version can be used to query and discover additional Twitter user profi
  * [http://178.62.229.16:5000/gui/ausername](http://178.62.229.16:5000/gui)
  
  Please note that in the current version the total number of additional queries that can be placed within a half an hour is limited by (limited by Twitter API it uses. 
+
+# B. Notebook
+A Jupyter notebook on the functionalities and modules of APP itself can be accessed [hereby](./OMLeaders.ipynb)
+
+# C. Installing and running the APP on a local computer
+
+After having created the python environment using the [requirements file](./requirements.txt), run the python script which is given via this repository.
+
+Check follwing guides for creation of pyhton environments: 
+- http://stackoverflow.com/questions/7225900/how-to-pip-install-packages-according-to-requirements-txt-from-a-local-directory
+- http://python-guide-pt-br.readthedocs.io/en/latest/dev/virtualenvs/
+
+Once the repository installed on a local computer, , see [requirements.txt](./requirements.txt), replace the "http://178.62.229.16:5000/" part of the URL below with http://127.0.0.1:5000/
+ 
+````
+python run_wsgi.py
+````
  
 
-# B. The Spirometer API Version
+# C. The Spirometer API Version
 
 In the current version data from the API can be retrieved by simple HTTP requests. The service is a typical RESTful application developed by a WSGI Framework (Flask + Gunicorn). 
 
@@ -225,19 +242,4 @@ It should be noted that any tweeter username can be queried by following pattern
 curl http://178.62.229.16:5000/influencer/<username>
 ````
 
-# C. Notebook
-A Jupyter notebook on the functionalities and modules of APP itself can be accessed [hereby](./OMLeaders.ipynb)
 
-# D. Installing and running the APP on a local computer
-
-After having created the python environment using the [requirements file](./requirements.txt), run the python script which is given via this repository.
-
-Check follwing guides for creation of pyhton environments: 
-- http://stackoverflow.com/questions/7225900/how-to-pip-install-packages-according-to-requirements-txt-from-a-local-directory
-- http://python-guide-pt-br.readthedocs.io/en/latest/dev/virtualenvs/
-
-Once the repository installed on a local computer, , see [requirements.txt](./requirements.txt), replace the "http://178.62.229.16:5000/" part of the URL below with http://127.0.0.1:5000/
- 
-````
-python run_wsgi.py
-````

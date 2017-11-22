@@ -143,74 +143,9 @@ The response is a JSON document:
       "score": 0.04020100502512563, 
       "username": "linuxfoundation"
     }, 
-    {
-      "score": 0.038461538461538464, 
-      "username": "MuratKun"
-    }, 
-    {
-      "score": 0.038461538461538464, 
-      "username": "hamzaz"
-    }, 
-    {
-      "score": 0.03571428571428571, 
-      "username": "dariomarmo_lama"
-    }, 
-    {
-      "score": 0.03553299492385787, 
-      "username": "StackSocial"
-    }, 
-    {
-      "score": 0.035, 
-      "username": "element14"
-    }, 
-    {
-      "score": 0.03225806451612903, 
-      "username": "andreafspeziale"
-    }, 
-    {
-      "score": 0.03225806451612903, 
-      "username": "uskudarli"
-    }, 
-    {
-      "score": 0.030456852791878174, 
-      "username": "make"
-    }, 
-    {
-      "score": 0.027472527472527472, 
-      "username": "dangerousproto"
-    }, 
-    {
-      "score": 0.026737967914438502, 
-      "username": "RealSexyCyborg"
-    }, 
+   
    ...
-    
-    {
-      "score": 0.01020408163265306, 
-      "username": "3DPrintGirl"
-    }, 
-    {
-      "score": 0.01020408163265306, 
-      "username": "3DPrintingFans"
-    }, 
-    {
-      "score": 0.01015228426395939, 
-      "username": "hackaday"
-    }, 
-    
-    {
-      "score": 0.005291005291005291, 
-      "username": "Ultimaker"
-    }, 
-    {
-      "score": 0.005263157894736842, 
-      "username": "ColorFabb"
-    }, 
-    {
-      "score": 0.00510204081632653, 
-      "username": "maker"
-    }, 
-    
+     
     {
       "score": 0.005, 
       "username": "lifehacker"

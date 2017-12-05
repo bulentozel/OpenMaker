@@ -209,6 +209,18 @@ def bokeh_query(name):
     script, div = components(layout)
     return render_template("gui.html", script=script, div=div)
 
+@app.route('/gui/api/<name>', methods=["GET"])
+def bokeh_api(name):
+    get_scores(name)
+    board = SB.import_board("./data/scoreboard.p")
+    if SB.is_on_board(name):
+        layout = bokehGUI(SB, MD, offlineboard=board, curMeme=DEFAULT_MEME, curInfluencer=name, ApiRequest=True)
+        script, div = components(layout)
+        return(render_template("gui.html", script=script, div=div))
+    else:
+        message = name + " user doesn't exist or the account's tweets are not accessable at the moment."
+        abort(400, message)
+
 
 ### The intefaces below are provided for backward compatibility.
 

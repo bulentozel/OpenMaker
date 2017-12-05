@@ -248,7 +248,8 @@ class BokehControler:
 def bokehGUI(ScoreBoard, MakerDictionary,
              offlineboard='None',
              curMeme="sustainability",
-             curInfluencer='mbanzi'
+             curInfluencer='mbanzi',
+             ApiRequest=False
             ):
     
     MD = MakerDictionary
@@ -499,8 +500,9 @@ def bokehGUI(ScoreBoard, MakerDictionary,
                  There are 4 or more distinct clusters/phases on each spiral.
                  Number of clusters and cluster membership is algorithmically generated from the data.
                  
-                 The sequence of nodes with/without an inner circle denotes membership to the same cluster. </p>
-                 
+                 The sequence of nodes with/without an inner circle denotes membership to the same cluster.
+                <br/> <br/>
+                </p> 
                 """, width=850, height=220)
     title_box = widgetbox(div_title, sizing_mode='scale_both', responsive=True)
 
@@ -602,6 +604,11 @@ def bokehGUI(ScoreBoard, MakerDictionary,
     ]
     data_table = DataTable(source=boards, columns=columns, width=820, height=500)
     table_box = widgetbox(data_table,sizing_mode='stretch_both', responsive=True)
+
+    # Figures only layout::::
+    if ApiRequest:
+        layoutAPI = column(fig_influencer, fig_board)
+        return(layoutAPI)
 
     # Overall Layout::::
     layout =  column(title_box, row(fig_influencer, column(tips_box,query_box)), fig_board,title_table, table_box)

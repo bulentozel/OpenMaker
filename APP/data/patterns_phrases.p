@@ -2,7 +2,7 @@
 cre
 _compile
 p1
-(S'mass\\s+production[.,;:]*'
+(S'unfinished\\s+product[.,;:]*'
 p2
 I2
 tp3
@@ -11,229 +11,250 @@ Rp4
 S'categories'
 p6
 (lp7
-S'7'
-p8
-asS'key'
-p9
-S'mass production'
-p10
-ssg1
-(S'non-judgmental\\s+society[.,;:]*'
-p11
-I2
-tp12
-Rp13
-(dp14
-g6
-(lp15
 S'0'
-p16
-asg9
-S'non-judgmental society'
-p17
-ssg1
-(S"problem\\s+sol[a-z']*[.,;:]*"
-p18
-I2
-tp19
-Rp20
-(dp21
-g6
-(lp22
-g16
-asg9
-S'problem sol*'
-p23
-ssg1
-(S'technical\\s+cause[.,;:]*'
-p24
-I2
-tp25
-Rp26
-(dp27
-g6
-(lp28
-g16
-aS'6'
-p29
-asg9
-S'technical cause'
-p30
-ssg1
-(S'people\\s+centric[.,;:]*'
-p31
-I2
-tp32
-Rp33
-(dp34
-g6
-(lp35
-g16
-asg9
-S'people centric'
-p36
-ssg1
-(S'learning\\s+by\\s+doing[.,;:]*'
-p37
-I2
-tp38
-Rp39
-(dp40
-g6
-(lp41
-g16
-asg9
-S'learning by doing'
-p42
-ssg1
-(S'circular\\s+economy[.,;:]*'
-p43
-I2
-tp44
-Rp45
-(dp46
-g6
-(lp47
-g16
-aS'4'
-p48
-asg9
-S'circular economy'
-p49
-ssg1
-(S'collaborative\\s+learning[.,;:]*'
-p50
-I2
-tp51
-Rp52
-(dp53
-g6
-(lp54
-g16
-aS'1'
-p55
-aS'2'
-p56
-asg9
-S'collaborative learning'
-p57
-ssg1
-(S"proprietary\\s+hardware[a-z']*[.,;:]*"
-p58
-I2
-tp59
-Rp60
-(dp61
-g6
-(lp62
-g8
-asg9
-S'proprietary hardware*'
-p63
-ssg1
-(S'social\\s+responsibility[.,;:]*'
-p64
-I2
-tp65
-Rp66
-(dp67
-g6
-(lp68
-g16
-aS'3'
-p69
-asg9
-S'social responsibility'
-p70
-ssg1
-(S'passive\\s+consumption[.,;:]*'
-p71
-I2
-tp72
-Rp73
-(dp74
-g6
-(lp75
-g8
-asg9
-S'passive consumption'
-p76
-ssg1
-(S"personal\\s+custom[a-z']*[.,;:]*"
-p77
-I2
-tp78
-Rp79
-(dp80
-g6
-(lp81
-g16
+p8
 aS'5'
-p82
-asg9
-S'personal custom*'
-p83
+p9
+asS'key'
+p10
+S'unfinished product'
+p11
 ssg1
-(S'artisan\\s+spirit[.,;:]*'
-p84
+(S"social\\s+relation[a-z']*[.,;:]*"
+p12
 I2
-tp85
-Rp86
-(dp87
+tp13
+Rp14
+(dp15
 g6
-(lp88
-g16
-ag82
-ag29
-asg9
-S'artisan spirit'
-p89
+(lp16
+g8
+aS'3'
+p17
+asg10
+S'social relation*'
+p18
+ssg1
+(S'democratization\\s+of\\s+making[.,;:]*'
+p19
+I2
+tp20
+Rp21
+(dp22
+g6
+(lp23
+g8
+aS'1'
+p24
+aS'2'
+p25
+ag17
+aS'4'
+p26
+ag9
+aS'6'
+p27
+aS'8'
+p28
+asg10
+S'democratization of making'
+p29
+ssg1
+(S"social\\s+impact[a-z']*[.,;:]*"
+p30
+I2
+tp31
+Rp32
+(dp33
+g6
+(lp34
+g8
+ag17
+asg10
+S'social impact*'
+p35
+ssg1
+(S"own\\s+design[a-z']*[.,;:]*"
+p36
+I2
+tp37
+Rp38
+(dp39
+g6
+(lp40
+g8
+ag9
+ag27
+asg10
+S'own design*'
+p41
 ssg1
 (S'available\\s+online[.,;:]*'
-p90
+p42
 I2
-tp91
-Rp92
-(dp93
+tp43
+Rp44
+(dp45
 g6
-(lp94
-g16
-ag55
-ag56
-asg9
+(lp46
+g8
+ag24
+ag25
+asg10
 S'available online'
-p95
+p47
 ssg1
-(S'unfinished\\s+product[.,;:]*'
-p96
+(S'creative\\s+commons[.,;:]*'
+p48
 I2
-tp97
-Rp98
-(dp99
+tp49
+Rp50
+(dp51
 g6
-(lp100
-g16
-ag82
-asg9
-S'unfinished product'
-p101
+(lp52
+g8
+ag24
+ag25
+ag17
+asg10
+S'creative commons'
+p53
+ssg1
+(S'ethical\\s+economy[.,;:]*'
+p54
+I2
+tp55
+Rp56
+(dp57
+g6
+(lp58
+g8
+asg10
+S'ethical economy'
+p59
+ssg1
+(S"own\\s+idea[a-z']*[.,;:]*"
+p60
+I2
+tp61
+Rp62
+(dp63
+g6
+(lp64
+g8
+ag9
+ag27
+asg10
+S'own idea*'
+p65
+ssg1
+(S"free\\s+rid[a-z']*[.,;:]*"
+p66
+I2
+tp67
+Rp68
+(dp69
+g6
+(lp70
+S'7'
+p71
+asg10
+S'free rid*'
+p72
+ssg1
+(S'personal\\s+fabrication[.,;:]*'
+p73
+I2
+tp74
+Rp75
+(dp76
+g6
+(lp77
+g8
+ag9
+ag27
+asg10
+S'personal fabrication'
+p78
+ssg1
+(S'network-based\\s+society[.,;:]*'
+p79
+I2
+tp80
+Rp81
+(dp82
+g6
+(lp83
+g8
+ag17
+asg10
+S'network-based society '
+p84
 ssg1
 (S'non-hierarchical\\s+society[.,;:]*'
-p102
+p85
 I2
-tp103
-Rp104
-(dp105
+tp86
+Rp87
+(dp88
 g6
-(lp106
-g16
-aS'8'
-p107
-asg9
+(lp89
+g8
+ag28
+asg10
 S'non-hierarchical society'
+p90
+ssg1
+(S"open\\s+manufact[a-z']*[.,;:]*"
+p91
+I2
+tp92
+Rp93
+(dp94
+g6
+(lp95
+g8
+ag24
+ag25
+ag17
+ag27
+asg10
+S'open manufact*'
+p96
+ssg1
+(S'socialization\\s+of\\s+production[.,;:]*'
+p97
+I2
+tp98
+Rp99
+(dp100
+g6
+(lp101
+g8
+ag24
+ag25
+ag17
+ag26
+asg10
+S'socialization of production '
+p102
+ssg1
+(S"own\\s+product[a-z']*[.,;:]*"
+p103
+I2
+tp104
+Rp105
+(dp106
+g6
+(lp107
+g8
+ag9
+ag27
+asg10
+S'own product*'
 p108
 ssg1
-(S'do\\s+it\\s+yourself[.,;:]*'
+(S'mass\\s+production[.,;:]*'
 p109
 I2
 tp110
@@ -241,12 +262,12 @@ Rp111
 (dp112
 g6
 (lp113
-g16
-asg9
-S'do it yourself'
+g71
+asg10
+S'mass production'
 p114
 ssg1
-(S"open\\s+manufact[a-z']*[.,;:]*"
+(S'community\\s+based\\s+innovation[.,;:]*'
 p115
 I2
 tp116
@@ -254,16 +275,14 @@ Rp117
 (dp118
 g6
 (lp119
-g16
-ag55
-ag56
-ag69
-ag29
-asg9
-S'open manufact*'
+g8
+ag17
+ag27
+asg10
+S'community based innovation'
 p120
 ssg1
-(S'socialization\\s+of\\s+production[.,;:]*'
+(S'environmental\\s+cause[.,;:]*'
 p121
 I2
 tp122
@@ -271,16 +290,13 @@ Rp123
 (dp124
 g6
 (lp125
-g16
-ag55
-ag56
-ag69
-ag48
-asg9
-S'socialization of production '
+g8
+ag26
+asg10
+S'environmental cause'
 p126
 ssg1
-(S'personal\\s+fabrication[.,;:]*'
+(S"self\\s+sufficien[a-z']*[.,;:]*"
 p127
 I2
 tp128
@@ -288,14 +304,13 @@ Rp129
 (dp130
 g6
 (lp131
-g16
-ag82
-ag29
-asg9
-S'personal fabrication'
+g8
+ag26
+asg10
+S'self sufficien*'
 p132
 ssg1
-(S'maker\\s+movement[.,;:]*'
+(S'learning\\s+by\\s+doing[.,;:]*'
 p133
 I2
 tp134
@@ -303,12 +318,12 @@ Rp135
 (dp136
 g6
 (lp137
-g16
-asg9
-S'maker movement'
+g8
+asg10
+S'learning by doing'
 p138
 ssg1
-(S'open\\s+source[.,;:]*'
+(S'non-judgmental\\s+society[.,;:]*'
 p139
 I2
 tp140
@@ -316,13 +331,12 @@ Rp141
 (dp142
 g6
 (lp143
-g16
-ag55
-asg9
-S'open source '
+g8
+asg10
+S'non-judgmental society'
 p144
 ssg1
-(S"social\\s+relation[a-z']*[.,;:]*"
+(S"proprietary\\s+hardware[a-z']*[.,;:]*"
 p145
 I2
 tp146
@@ -330,13 +344,12 @@ Rp147
 (dp148
 g6
 (lp149
-g16
-ag69
-asg9
-S'social relation*'
+g71
+asg10
+S'proprietary hardware*'
 p150
 ssg1
-(S"own\\s+design[a-z']*[.,;:]*"
+(S'people\\s+centric[.,;:]*'
 p151
 I2
 tp152
@@ -344,14 +357,12 @@ Rp153
 (dp154
 g6
 (lp155
-g16
-ag82
-ag29
-asg9
-S'own design*'
+g8
+asg10
+S'people centric'
 p156
 ssg1
-(S"social\\s+cause[a-z']*[.,;:]*"
+(S'open\\s+source[.,;:]*'
 p157
 I2
 tp158
@@ -359,13 +370,13 @@ Rp159
 (dp160
 g6
 (lp161
-g16
-ag69
-asg9
-S'social cause*'
+g8
+ag24
+asg10
+S'open source '
 p162
 ssg1
-(S'community\\s+based\\s+innovation[.,;:]*'
+(S'local\\s+culture[.,;:]*'
 p163
 I2
 tp164
@@ -373,14 +384,12 @@ Rp165
 (dp166
 g6
 (lp167
-g16
-ag69
-ag29
-asg9
-S'community based innovation'
+g8
+asg10
+S'local culture'
 p168
 ssg1
-(S'no\\s+waste[.,;:]*'
+(S'technical\\s+cause[.,;:]*'
 p169
 I2
 tp170
@@ -388,13 +397,13 @@ Rp171
 (dp172
 g6
 (lp173
-g16
-ag48
-asg9
-S'no waste'
+g8
+ag27
+asg10
+S'technical cause'
 p174
 ssg1
-(S'entrepreneurial\\s+support[.,;:]*'
+(S'circular\\s+economy[.,;:]*'
 p175
 I2
 tp176
@@ -402,13 +411,13 @@ Rp177
 (dp178
 g6
 (lp179
-g16
-ag29
-asg9
-S'entrepreneurial support'
+g8
+ag26
+asg10
+S'circular economy'
 p180
 ssg1
-(S"own\\s+product[a-z']*[.,;:]*"
+(S"problem\\s+sol[a-z']*[.,;:]*"
 p181
 I2
 tp182
@@ -416,14 +425,12 @@ Rp183
 (dp184
 g6
 (lp185
-g16
-ag82
-ag29
-asg9
-S'own product*'
+g8
+asg10
+S'problem sol*'
 p186
 ssg1
-(S"free\\s+rid[a-z']*[.,;:]*"
+(S"free\\s+software[a-z']*[.,;:]*"
 p187
 I2
 tp188
@@ -432,11 +439,12 @@ Rp189
 g6
 (lp191
 g8
-asg9
-S'free rid*'
+ag24
+asg10
+S'free software*'
 p192
 ssg1
-(S"self\\s+sufficien[a-z']*[.,;:]*"
+(S'no\\s+waste[.,;:]*'
 p193
 I2
 tp194
@@ -444,13 +452,13 @@ Rp195
 (dp196
 g6
 (lp197
-g16
-ag48
-asg9
-S'self sufficien*'
+g8
+ag26
+asg10
+S'no waste'
 p198
 ssg1
-(S'creative\\s+commons[.,;:]*'
+(S'social\\s+responsibility[.,;:]*'
 p199
 I2
 tp200
@@ -458,15 +466,13 @@ Rp201
 (dp202
 g6
 (lp203
-g16
-ag55
-ag56
-ag69
-asg9
-S'creative commons'
+g8
+ag17
+asg10
+S'social responsibility'
 p204
 ssg1
-(S'network-based\\s+society[.,;:]*'
+(S'collaborative\\s+learning[.,;:]*'
 p205
 I2
 tp206
@@ -474,13 +480,14 @@ Rp207
 (dp208
 g6
 (lp209
-g16
-ag69
-asg9
-S'network-based society '
+g8
+ag24
+ag25
+asg10
+S'collaborative learning'
 p210
 ssg1
-(S'environmental\\s+cause[.,;:]*'
+(S"social\\s+cause[a-z']*[.,;:]*"
 p211
 I2
 tp212
@@ -488,13 +495,13 @@ Rp213
 (dp214
 g6
 (lp215
-g16
-ag48
-asg9
-S'environmental cause'
+g8
+ag17
+asg10
+S'social cause*'
 p216
 ssg1
-(S'democratization\\s+of\\s+making[.,;:]*'
+(S'entrepreneurial\\s+support[.,;:]*'
 p217
 I2
 tp218
@@ -502,19 +509,13 @@ Rp219
 (dp220
 g6
 (lp221
-g16
-ag55
-ag56
-ag69
-ag48
-ag82
-ag29
-ag107
-asg9
-S'democratization of making'
+g8
+ag27
+asg10
+S'entrepreneurial support'
 p222
 ssg1
-(S'local\\s+culture[.,;:]*'
+(S'artisan\\s+spirit[.,;:]*'
 p223
 I2
 tp224
@@ -522,12 +523,14 @@ Rp225
 (dp226
 g6
 (lp227
-g16
-asg9
-S'local culture'
+g8
+ag9
+ag27
+asg10
+S'artisan spirit'
 p228
 ssg1
-(S"own\\s+idea[a-z']*[.,;:]*"
+(S"proprietary\\s+software[a-z']*[.,;:]*"
 p229
 I2
 tp230
@@ -535,14 +538,12 @@ Rp231
 (dp232
 g6
 (lp233
-g16
-ag82
-ag29
-asg9
-S'own idea*'
+g71
+asg10
+S'proprietary software*'
 p234
 ssg1
-(S"corporate\\s+technolog[a-z']*[.,;:]*"
+(S'maker\\s+movement[.,;:]*'
 p235
 I2
 tp236
@@ -551,11 +552,11 @@ Rp237
 g6
 (lp239
 g8
-asg9
-S'corporate technolog*'
+asg10
+S'maker movement'
 p240
 ssg1
-(S'ethical\\s+economy[.,;:]*'
+(S"personal\\s+custom[a-z']*[.,;:]*"
 p241
 I2
 tp242
@@ -563,12 +564,13 @@ Rp243
 (dp244
 g6
 (lp245
-g16
-asg9
-S'ethical economy'
+g8
+ag9
+asg10
+S'personal custom*'
 p246
 ssg1
-(S"proprietary\\s+software[a-z']*[.,;:]*"
+(S'do\\s+it\\s+yourself[.,;:]*'
 p247
 I2
 tp248
@@ -577,8 +579,8 @@ Rp249
 g6
 (lp251
 g8
-asg9
-S'proprietary software*'
+asg10
+S'do it yourself'
 p252
 ssg1
 (S'open\\s+design[.,;:]*'
@@ -589,13 +591,13 @@ Rp255
 (dp256
 g6
 (lp257
-g16
-ag55
-asg9
+g8
+ag24
+asg10
 S'open design'
 p258
 ssg1
-(S"free\\s+software[a-z']*[.,;:]*"
+(S"corporate\\s+technolog[a-z']*[.,;:]*"
 p259
 I2
 tp260
@@ -603,13 +605,12 @@ Rp261
 (dp262
 g6
 (lp263
-g16
-ag55
-asg9
-S'free software*'
+g71
+asg10
+S'corporate technolog*'
 p264
 ssg1
-(S"social\\s+impact[a-z']*[.,;:]*"
+(S'collective\\s+good[.,;:]*'
 p265
 I2
 tp266
@@ -617,13 +618,13 @@ Rp267
 (dp268
 g6
 (lp269
-g16
-ag69
-asg9
-S'social impact*'
+g8
+ag17
+asg10
+S'collective good'
 p270
 ssg1
-(S'collective\\s+good[.,;:]*'
+(S'passive\\s+consumption[.,;:]*'
 p271
 I2
 tp272
@@ -631,9 +632,8 @@ Rp273
 (dp274
 g6
 (lp275
-g16
-ag69
-asg9
-S'collective good'
+g71
+asg10
+S'passive consumption'
 p276
 ss.

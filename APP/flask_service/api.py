@@ -8,11 +8,13 @@ from LibOM.GuiInterfaces import *
 from bokeh.embed import components
 
 
+DEFAULT_INF = "RealSexyCyborg"
+DEFAULT_MEME = "craftship"
 DEFAULT_CAT = "openmakership"
 EXTERNAL_CAT = ["openness", "sharing", "innovation", "sustainability", "collectiveness"]
 
-ROOT_URL = "https://openmaker.herokuapp.com/"
-#ROOT_URL = "http://127.0.0.1:5000/"
+#ROOT_URL = "https://openmaker.herokuapp.com/"
+ROOT_URL = "http://127.0.0.1:5000/"
 
 
 def get_category_code(category):
@@ -182,14 +184,16 @@ def bokeh_static():
     SB = ScoreBoard()
     MD = MakerDictionary()
     board = SB.import_board("./data/scoreboard.p")
-    layout = bokehGUI(SB, MD, offlineboard=board)
+    layout = bokehGUI(SB, MD, offlineboard=board, curMeme=DEFAULT_MEME,
+             curInfluencer=DEFAULT_INF)
     script, div = components(layout)
     return render_template("gui.html", script=script, div=div)
 
 @app.route('/gui', methods=["GET"])
 def bokeh():
     board = SB.import_board("./data/scoreboard.p")
-    layout = bokehGUI(SB, MD, offlineboard=board)
+    layout = bokehGUI(SB, MD, offlineboard=board, curMeme=DEFAULT_MEME,
+             curInfluencer=DEFAULT_INF)
     script, div = components(layout)
     return render_template("gui.html", script=script, div=div)
 
@@ -198,9 +202,10 @@ def bokeh_query(name):
     get_scores(name)
     board = SB.import_board("./data/scoreboard.p")
     if SB.is_on_board(name):
-        layout = bokehGUI(SB, MD, offlineboard=board, curInfluencer=name)
+        layout = bokehGUI(SB, MD, offlineboard=board, curMeme=DEFAULT_MEME, curInfluencer=name)
     else:
-        layout = bokehGUI(SB, MD, offlineboard=board)
+        layout = bokehGUI(SB, MD, offlineboard=board, curMeme=DEFAULT_MEME,
+             curInfluencer='mbanzi')
     script, div = components(layout)
     return render_template("gui.html", script=script, div=div)
 

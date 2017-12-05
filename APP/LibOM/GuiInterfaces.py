@@ -109,6 +109,7 @@ class BokehControler:
         Names = list()
         Sizes = list()
         Scores = list()
+        Clusters = list()
         Levels = list()
         Offsets = list()
         Tweets = list()
@@ -122,8 +123,9 @@ class BokehControler:
             scores = [x[1] for x in ranks]
             #sizes = [round(w * 50 + 10) for w in scores]
             sizes =  [round(15 * t/100 + 10) for t in tweets]
-            levels = determine_tiers(scores)
-            levels = mark_alternates(levels, sizes)
+            labels = determine_tiers(scores)
+            clusters = relabel_group_membership(labels)
+            levels = mark_alternates(labels, sizes)
             offsets = [x / 1.8 for x in sizes]
             #coordinates = get_spiral_locations(npoints, center=origin, diameters=sizes, teta=rotation)
             #coordinates,Angle,R = get_new_spiral_locations(scores, ntier=2, smax=None, center=origin, diameters=sizes)
@@ -194,6 +196,7 @@ class BokehControler:
             Names.extend(names)
             Scores.extend(scores)
             Levels.extend(levels)
+            Clusters.extend(clusters)
             Sizes.extend(sizes)
             Xpoints.extend(xcoord)
             Ypoints.extend(ycoord)
@@ -212,6 +215,7 @@ class BokehControler:
             memes=Memes,
             scores=Scores,
             levels=Levels,
+            clusters=Clusters,
             tweets=Tweets
         ))
         self.Boards = source
@@ -282,7 +286,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
 
     ## The Influencer Canvas::
     title = "Influencer"
-    fig_influencer = figure(plot_width=600, plot_height=450, title=title, tools=TOOLS, toolbar_location="above",
+    fig_influencer = figure(plot_width=700, plot_height=500, title=title, tools=TOOLS, toolbar_location="above",
                toolbar_sticky=True, active_drag="pan", active_tap='tap', active_scroll='wheel_zoom', responsive=True)
 
     fig_influencer.axis.visible = False
@@ -312,7 +316,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
 
     ### Hover Tool:::
     infhover = HoverTool(tooltips=[
-        ("Score", "@scores"),
+        ("Score", "@scores{0,0.000}"),
         ("Type", "per_tweet"),
         ("Ntweets", "@tweets")
     ])
@@ -324,7 +328,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
     #for k in BI.ActiveBoard.data.keys(): print(k, BI.ActiveBoard.data[k])
 
     title_board = "Community Spirometer"
-    fig_board = figure(plot_width=850, plot_height=500, title=title_board, tools=TOOLS, toolbar_location="above",
+    fig_board = figure(plot_width=900, plot_height=550, title=title_board, tools=TOOLS, toolbar_location="above",
                toolbar_sticky=True, active_drag="pan", active_tap='tap', active_scroll='wheel_zoom', responsive=True)
     fig_board.axis.visible = False
     fig_board.border_fill_color = "whitesmoke"
@@ -350,10 +354,11 @@ def bokehGUI(ScoreBoard, MakerDictionary,
 
     ### Hover Tool:::
     boardhover = HoverTool(tooltips=[
-        ("Inf.", "@names"),
-        ("Ntweets", "@tweets"),
-        ("Score", "@scores"),
-        ("Type", "per_tweet")
+        ("Name", "@names"),
+        ("Phase", "@clusters"),
+        ("Score", "@scores{0,0.000}"),
+        ("Scoring type", "per_tweet"),
+        ("Number of tweets probed", "@tweets")
     ])
     fig_board.add_tools(boardhover)
 
@@ -429,6 +434,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
             d3['sizes'] = [];
             d3['scores'] = [];
             d3['levels'] = [];
+            d3['clusters'] = [];
             d3['names'] = [];
             d3['memes'] = [];
             d3['offsets'] = [];
@@ -455,6 +461,7 @@ def bokehGUI(ScoreBoard, MakerDictionary,
                 d3['sizes'].push(d2['sizes'][i]);
                 d3['scores'].push(d2['scores'][i]);
                 d3['levels'].push(d2['levels'][i]);
+                d3['clusters'].push(d2['clusters'][i]);
                 d3['names'].push(d2['names'][i]);
                 d3['memes'].push(d2['memes'][i]);
                 d3['offsets'].push(d2['offsets'][i]);
@@ -476,23 +483,24 @@ def bokehGUI(ScoreBoard, MakerDictionary,
     ## Info Box::
     div_title = Div(text="""
                 <h2> OpenMaker Community Spirometer</h2>
-                <p>The sprirometer is a way to observe opionion leaders and influencers of the community,
-                those who promote values of the open making or open making friendly social values.
+                <p>This Sprirometer GUI is one of the ways to observe opionion leaders and influencers,
+                those who promote values or memes relevant to the open making.
                 
-                <p>Influential actors are placed rather in the core of the spiral. See the lower interactive panel.
+                <p>Influential actors are placed rather outer branches of the spiral. See the lower interactive panel.
                 An infleuncer's spiral profile, as of his/her contribution to the maker movement related debates,
                 can be seen via the upper interactive panel.</p>
                 
                 <p>The data is collected from the tweets that are in the public domain.
                 The latest tweets in English of an infleuncer is used for the analysis and visualizations. 
-                The nodes on the spirometer (the lower panel) are resized according to the number tweets
+                The nodes on the spirometer (the lower panel) are resized according to the number of tweets
                 by the corresponding influencer.</p>
                 
-                 <p>Influencers are clustered according to their sphere of influence.
-                 There are 4 or more distinct clusters on each spiral.
+                 <p>Influencers are clustered according to their sphere of influence. 
+                 There are 4 or more distinct clusters/phases on each spiral.
                  Number of clusters and cluster membership is algorithmically generated from the data.
                  
-                 A consequence of nodes with/without an inner circle denotes membership to the same cluster. </p>
+                 The sequence of nodes with/without an inner circle denotes membership to the same cluster. </p>
+                 
                 """, width=850, height=220)
     title_box = widgetbox(div_title, sizing_mode='scale_both', responsive=True)
 

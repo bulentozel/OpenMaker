@@ -286,7 +286,7 @@ p130
 aS'mass*'
 p131
 asg32
-S'making'
+S'artisanship'
 p132
 ssS'3'
 p133
@@ -456,7 +456,7 @@ aS'patent*'
 p170
 ag131
 asg32
-S'anti-mass'
+S'anti-mass-consumption'
 p171
 ssS'6'
 p172

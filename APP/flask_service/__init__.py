@@ -19,7 +19,7 @@ print "Number of influencers from the WatchTower: ", len(WTInfluencers)
 
 # Collecting tweets of the influencers:
 debates = ClientTwitter.retrieve_tweets(WTInfluencers, 200)
-#debates = ClientTwitter.retrieve_tweets(WTInfluencers[0:3], 5)
+#debates = ClientTwitter.retrieve_tweets(WTInfluencers[0:10], 10)
 #debates = ClientTwitter.retrieve_tweets(WTInfluencers, 50)
 
 

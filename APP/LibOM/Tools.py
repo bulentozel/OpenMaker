@@ -325,12 +325,19 @@ class ScoreBoard:
             del self.table[actor]
         self.update_rankings()
         
-    def compute_rankings(self, category='all', stype = "per_tweet"):
+    def compute_rankings(self, category='all', stype = "per_tweet", centered=False):
+        """
+
+        :param category:
+        :param stype:
+        :param centered: when True the influentials will be placed in the center of the spiral.
+        :return:
+        """
         if category == -1: category = 'all'
         rankings = {a:self.table[a]['scores'][category][stype]
                        for a in self.table.keys()
                        if category in self.table[a]['scores'].keys()}
-        rankings = sorted(rankings.items(), key=lambda x: x[1], reverse=True)
+        rankings = sorted(rankings.items(), key=lambda x: x[1], reverse=centered)
         self.rankings[(category,stype)] = rankings
 
     def get_rankings_one(self, category='all', stype='per_tweet'):
@@ -504,7 +511,7 @@ def get_drifted_spiral_locations(npoints, scores, center={'x': 0, 'y': 0}, diame
     distances.append(0)
     S_pre = scores[0]
     for S in scores[1:]:
-        dS = S_pre - S
+        dS = abs(S_pre - S)
         distances.append(dS)
         S_pre = S
 
@@ -533,6 +540,12 @@ def determine_tiers(scores, n_tiers=None, window=0.25):
     return(labels)
 
 def mark_alternates(levels,sizes):
+    """Returns the size of the inner circle on the spirometer.
+
+    :param levels: (list) Cluster ID of the node.
+    :param sizes: (list) The size of the node.
+    :return: (list)
+    """
     marks = list()
     altered = False
     tag = levels[0]
@@ -546,6 +559,23 @@ def mark_alternates(levels,sizes):
             marks.append(0)
     return(marks)
 
+def relabel_group_membership(levels):
+    """ Returns the list where group membership is relabeld consecuitvely."
+
+    :param levels: (list) labels received by clustering algorithm.
+    :return:
+    """
+    marks = list()
+    cur = levels[0]
+    tag = 1
+    for i, l in enumerate(levels):
+        if cur != levels[i]:
+            tag += 1
+            marks.append(tag)
+            cur = levels[i]
+        else:
+            marks.append(tag)
+    return(marks)
 
 
 

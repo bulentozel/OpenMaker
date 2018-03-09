@@ -1,4 +1,4 @@
-import scrapy, re
+import scrapy, re, csv
 
 class WikipediaSpider(scrapy.Spider):
     name = "wikipedia"
@@ -18,22 +18,48 @@ class WikipediaSpider(scrapy.Spider):
         'Jump to',
         'Main article'
         ]
+    def read_root_urls(self, urlfile):
+        """It reads list of urls from comma sperated textfile.
 
+
+        Args:
+            urlfile (str): the name of external file.
+            
+            Note that each row should have a theam identifier and url.
+            Format:
+            0, https://en.wikipedia.org/wiki/Do_it_yourself,
+            0, https://en.wikipedia.org/wiki/Open_design,
+            1, https://en.wikipedia.org/wiki/ustainability
+
+        Returns:
+            A python list of tuples with theme Id and the url.
+        """
+
+        with open(urlfile) as csvfile:
+            urls = list()
+            urlreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            for row in urlreader:
+                themeid = int(row[0].strip())
+                url = row[1].strip()
+                newroot = (themeid,url)
+                urls.append(newroot)
+            return urls
+                
     def start_requests(self):
         urls = [
-            'https://en.wikipedia.org/wiki/Do_it_yourself',
-            'https://en.wikipedia.org/wiki/Open_design',
-            'https://en.wikipedia.org/wiki/Sustainability',
-            'https://en.wikipedia.org/wiki/Maker_culture',
-            'https://en.wikipedia.org/wiki/Innovation',
-            'https://en.wikipedia.org/wiki/Collaboration'
+            0, 'https://en.wikipedia.org/wiki/Do_it_yourself'
         ]
-        theme = 0
-        for url in urls:
+
+        infile = "/Users/bulentozel/OpenMaker/GitHub/OpenMaker/Scraping/wikipedia/input_urls.txt"
+        urls = self.read_root_urls(infile)
+        
+        for entry in urls:
+            url = entry[1]
+            print(url)
+            theme = entry[0]
             request = scrapy.Request(url=url, callback=self.parse)
             request.meta['depth'] = 0
             request.meta['theme'] = theme
-            theme += 1
             yield request
             
     def parse(self, response):

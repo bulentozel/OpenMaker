@@ -1,10 +1,13 @@
 import re
 
 ALLOWED_SYMBOLS = list("abcdefghijklmnopqrstuvwxyz1234567890 \n.,():;-!?\"")
-CHARACTERS_TO_SPLIT = """.,():;!?\n\""""
+CHARACTERS_TO_SPLIT = """.,():;!?\n`'-"""
 REPLACEMENTS = {
     "\x05": " ",
-    "&": "and"
+    "&": "and",
+    "`": " ",
+    "'": " ",
+    "-": " "
 }
 
 

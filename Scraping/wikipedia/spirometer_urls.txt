@@ -1,0 +1,6 @@
+0, https://en.wikipedia.org/wiki/Do_it_yourself
+1, https://en.wikipedia.org/wiki/Open_design
+2, https://en.wikipedia.org/wiki/Sustainability
+3, https://en.wikipedia.org/wiki/Maker_culture
+4, https://en.wikipedia.org/wiki/Innovation
+5, https://en.wikipedia.org/wiki/Collaboration

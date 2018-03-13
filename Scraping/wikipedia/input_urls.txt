@@ -1,23 +1,23 @@
-1, https://en.wikipedia.org/wiki/Power_(social_and_political)
-2, https://en.wikipedia.org/wiki/Need_for_achievement
-2, https://en.wikipedia.org/wiki/Social_influence
-3, https://en.wikipedia.org/wiki/Hedonism
-4, https://en.wikipedia.org/wiki/Stimulation
-5, https://en.wikipedia.org/wiki/Creativity
-5, https://en.wikipedia.org/wiki/Freedom
-5, https://en.wikipedia.org/wiki/Independence
-6, https://en.wikipedia.org/wiki/Universalism
-6, https://en.wikipedia.org/wiki/Social_justice
-6, https://en.wikipedia.org/wiki/Egalitarianism
-6, https://en.wikipedia.org/wiki/Environmental_protection
-7, https://en.wikipedia.org/wiki/Altruism
-7, https://en.wikipedia.org/wiki/Loyalty
-7, https://en.wikipedia.org/wiki/Responsibility
-8, https://en.wikipedia.org/wiki/Tradition
-8, https://en.wikipedia.org/wiki/Modesty
-9, https://en.wikipedia.org/wiki/Conformity
-9, https://en.wikipedia.org/wiki/Obedience_(human_behavior)
-9, https://en.wikipedia.org/wiki/Discipline
-10, https://en.wikipedia.org/wiki/Security
-10, https://en.wikipedia.org/wiki/Social_order
-10, https://en.wikipedia.org/wiki/Cleanliness
+1,1,https://en.wikipedia.org/wiki/Power_(social_and_political)
+2,1,https://en.wikipedia.org/wiki/Need_for_achievement
+2,1,https://en.wikipedia.org/wiki/Social_influence
+3,1,https://en.wikipedia.org/wiki/Hedonism
+4,1,https://en.wikipedia.org/wiki/Stimulation
+5,0,https://en.wikipedia.org/wiki/Creativity
+5,0,https://en.wikipedia.org/wiki/Freedom
+5,0,https://en.wikipedia.org/wiki/Independence
+6,0,https://en.wikipedia.org/wiki/Universalism
+6,0,https://en.wikipedia.org/wiki/Social_justice
+6,0,https://en.wikipedia.org/wiki/Egalitarianism
+6,0,https://en.wikipedia.org/wiki/Environmental_protection
+7,1,https://en.wikipedia.org/wiki/Altruism
+7,1,https://en.wikipedia.org/wiki/Loyalty
+7,1,https://en.wikipedia.org/wiki/Responsibility
+8,1,https://en.wikipedia.org/wiki/Tradition
+8,1,https://en.wikipedia.org/wiki/Modesty
+9,1,https://en.wikipedia.org/wiki/Conformity
+9,1,https://en.wikipedia.org/wiki/Obedience_(human_behavior)
+9,1,https://en.wikipedia.org/wiki/Discipline
+10,1,https://en.wikipedia.org/wiki/Security
+10,1,https://en.wikipedia.org/wiki/Social_order
+10,1,https://en.wikipedia.org/wiki/Cleanliness

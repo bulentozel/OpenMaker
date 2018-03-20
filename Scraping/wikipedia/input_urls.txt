@@ -2,7 +2,10 @@
 2,1,https://en.wikipedia.org/wiki/Need_for_achievement
 2,1,https://en.wikipedia.org/wiki/Social_influence
 3,1,https://en.wikipedia.org/wiki/Hedonism
-4,1,https://en.wikipedia.org/wiki/Stimulation
+4,0,https://en.wikipedia.org/wiki/Stimulation
+4,0,https://en.wikipedia.org/wiki/Psychomotor_agitation
+4,0,https://en.wikipedia.org/wiki/Stimming
+4,0,https://en.wikipedia.org/wiki/Stress_management
 5,0,https://en.wikipedia.org/wiki/Creativity
 5,0,https://en.wikipedia.org/wiki/Freedom
 5,0,https://en.wikipedia.org/wiki/Independence

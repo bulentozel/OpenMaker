@@ -8,6 +8,7 @@ class WikipediaSpider(scrapy.Spider):
     name = "wikipedia"
     depth = 1
     document_id = 1
+    marker = ' '
     SiteStopWords = [
         'navigation',
         'search',
@@ -66,6 +67,9 @@ class WikipediaSpider(scrapy.Spider):
             message = 'An input file with seed url is needed!\n Example run:\n scrapy crawl wikipedia -o test.json -a infile="./input_urls.txt"'
             print(message)
             raise scrapy.exceptions.CloseSpider(reason='cancelled')
+
+        marker = getattr(self, 'marker', None)
+        if marker: self.marker = marker
             
         urls = self.read_root_urls(infile)
         
@@ -152,29 +156,51 @@ class WikipediaSpider(scrapy.Spider):
 
         # Removing header part:
         body0 = main[len(head):]
+        print('0'*10)
+        print(body0)
 
         # Remove unicode characters:
-        body1 = [re.sub(r'[^\x00-\x7F]+','', t) for t in body0]
+        print('1'*10)
+        body1 = [re.sub(r'[^\x00-\x7F]+',' ', t) for t in body0]
+        print(body1)
 
         # Remove URLs
         body2 = [t.split() for t in body1]
-        body2 = [[x for x in y if not "://" in x] for y in body2]
+        #body2 = [[x for x in y if not "://" in x] for y in body2]
+        body2 = [[self.marker if "://" in x else x for x in y] for y in body2]
         body2 = [y for y in body2 if y]
-        body2 = [" ".join(y) for y in body2]
+        body2 = [' '.join(y) for y in body2]
 
         # Romove "[]_()\,:.;":
-        body2 = [re.sub(r'[\[\]\(\)\\.,;:_]+',' ', t) for t in body2]
+        body2 = [re.sub(r'[\[\]\(\)\\.,;:_]+',self.marker, t) for t in body2]
+
+        print('2'*10)
+        print(body2)
 
         # Remove number only literals:
         body3 = [t.split() for t in body2]
         body3 = [y for y in body3 if y]
-        body3 = [[x for x in y if not x.isdigit()] for y in body3]
-        body3 = [y for y in body3 if y]
+        body3 = [[self.marker if x.isdigit() else x for x in y] for y in body3]
+        #body3 = [y if y else self.delimiter for y in body3]
+        body3 = [' '.join(y)  for y in body3 if y]
+
+        print('3'*10)
+        print(body3)
 
         ## Remove Wikipedia specific stop words and phrases:
-        body4 = [" ".join(y) for y in body3 if not (len(y)==1 and y[0] in self.SiteStopWords)]
+        #body4 = [self.marker.join(y) for y in body3 if not (len(y)==1 and y[0] in self.SiteStopWords)]
+        body4 = [[self.marker] if (len(y)==1 and y[0] in self.SiteStopWords) else y for y in body3]
+
+        print('4'*10)
+        print(body4)
         
         SplitSSP = [x.split() for x in self.SiteStopPhrases]
-        body5 = [x for x in body4 if x.split() not in SplitSSP]
-        body = " \n ".join(body5)
+        #body5 = [x for x in body4 if x.split() not in SplitSSP]
+        body5 = [x if x.split() not in SplitSSP else self.marker for x in body4]
+        body = self.marker.join(body5)
+        if not self.marker:
+            body.replace(self.marker, ' ')
+
+        print('5'*10)
+        print(body)
         return body

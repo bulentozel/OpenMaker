@@ -28,6 +28,7 @@ can't
 com
 could
 couldn't
+d
 did
 didn't
 do
@@ -81,8 +82,11 @@ itself
 i've
 just
 know
+l
+ll
 let's
 like
+m
 me
 more
 most
@@ -107,6 +111,8 @@ out
 over
 own
 r
+re
+s
 same
 shan't
 she
@@ -118,6 +124,7 @@ shouldn't
 so
 some
 such
+t
 than
 that
 that's
@@ -143,6 +150,7 @@ too
 under
 until
 up
+ve
 very
 was
 wasn't

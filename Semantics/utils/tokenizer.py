@@ -1,13 +1,14 @@
 import re
 
-ALLOWED_SYMBOLS = list("abcdefghijklmnopqrstuvwxyz1234567890 \n.,():;-!?\"")
+ALLOWED_SYMBOLS = list("abcdefghijklmnopqrstuvwxyz1234567890")
 CHARACTERS_TO_SPLIT = """.,():;!?\n`'-"""
+CHARACTERS_TO_SPLIT += '‘'+'’'+'“'+'”'+'.'
 REPLACEMENTS = {
-    "\x05": " ",
+    r"\x05": " ",
     "&": "and",
-    "`": " ",
-    "'": " ",
-    "-": " "
+    r"`": " ",
+    r"'": " ",
+    r"-": " "
 }
 
 
@@ -16,7 +17,7 @@ def tokenize_strip_non_words(raw):
     Same as tokenize_words, but also removes non-word characters
     """
     return [t for t in tokenize_words(raw) if t not in
-            CHARACTERS_TO_SPLIT + "\n"]
+            CHARACTERS_TO_SPLIT]
 
 
 def normalise(s):
@@ -39,7 +40,7 @@ def normalise(s):
     symbols = set(s)
     for c in symbols:
         if c not in ALLOWED_SYMBOLS:
-            s = s.replace(c, "")
+            s = s.replace(c, " ")
 
     return s
 

@@ -1,0 +1,504 @@
+{
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required":["id","name","surname","email","community affiliations","funding","profile", "projects","behavior"],
+    "maxProperties":13,
+    "properties": {
+        "id": {
+            "$id": "/properties/id",
+            "type": "integer",
+            "title": "The Id Schema ",
+            "default": 0,
+            "examples": [
+                         7
+                         ]
+        },
+        "member_id": {
+            "$id": "/properties/member_id",
+            "type": "integer",
+            "title": "The Member_id Schema ",
+            "default": 0,
+            "examples": [
+                         42
+                         ]
+        },
+        "name": {
+            "$id": "/properties/name",
+            "type": "string",
+            "title": "The Name Schema ",
+            "default": "",
+            "examples": [
+                         "Bulent"
+                         ]
+        },
+        "surname": {
+            "$id": "/properties/surname",
+            "type": "string",
+            "title": "The Surname Schema ",
+            "default": "",
+            "examples": [
+                         "Ozel"
+                         ]
+        },
+        "email": {
+            "$id": "/properties/email",
+            "type": "string",
+            "title": "The Email Schema ",
+            "default": "",
+            "examples": [
+                         "bulent.ozel@gmil.com"
+                         ]
+        },
+        "linkedin": {
+            "$id": "/properties/linkedin",
+            "type": "string",
+            "title": "The Linkedin Schema ",
+            "default": "",
+            "examples": [
+                         "https://www.linkedin.com/in/bulent-ozel-70b89b26/"
+                         ]
+        },
+        "twitter": {
+            "$id": "/properties/twitter",
+            "type": "string",
+            "title": "The Twitter Schema ",
+            "default": "",
+            "examples": [
+                         "bulentozel"
+                         ]
+        },
+        "community affiliations": {
+            "$id": "/properties/community affiliations",
+            "type": "array",
+            "items": {
+                "$id": "/properties/community affiliations/items",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "$id": "/properties/community affiliations/items/properties/name",
+                        "type": "string",
+                        "title": "The Name Schema ",
+                        "default": "",
+                        "examples": [
+                                     "Impact Hub Amsterdam"
+                                     ]
+                    },
+                    "city": {
+                        "$id": "/properties/community affiliations/items/properties/city",
+                        "type": "string",
+                        "title": "The City Schema ",
+                        "default": "",
+                        "examples": [
+                                     "Amsterdam"
+                                     ]
+                    },
+                    "country": {
+                        "$id": "/properties/community affiliations/items/properties/country",
+                        "type": "string",
+                        "title": "The Country Schema ",
+                        "default": "",
+                        "examples": [
+                                     "NL"
+                                     ]
+                    }
+                }
+            }
+        },
+        "funding": {
+            "$id": "/properties/funding",
+            "type": "object",
+            "properties": {
+                "availability": {
+                    "$id": "/properties/funding/properties/availability",
+                    "type": "integer",
+                    "title": "The Availability Schema ",
+                    "default": 0,
+                    "examples": [
+                                 1
+                                 ]
+                },
+                "amount": {
+                    "$id": "/properties/funding/properties/amount",
+                    "type": "integer",
+                    "title": "The Amount Schema ",
+                    "default": 0,
+                    "examples": [
+                                 2
+                                 ]
+                },
+                "success rate": {
+                    "$id": "/properties/funding/properties/success rate",
+                    "type": "integer",
+                    "title": "The Success rate Schema ",
+                    "default": 0,
+                    "examples": [
+                                 3
+                                 ]
+                }
+            }
+        },
+        "profile": {
+            "$id": "/properties/profile",
+            "type": "object",
+            "properties": {
+                "domains": {
+                    "$id": "/properties/profile/properties/domains",
+                    "type": "array",
+                    "items": {
+                        "$id": "/properties/profile/properties/domains/items",
+                        "type": "string",
+                        "title": "The 0th Schema ",
+                        "default": "",
+                        "examples": [
+                                     "IT",
+                                     "Community"
+                                     ]
+                    }
+                },
+                "categories": {
+                    "$id": "/properties/profile/properties/categories",
+                    "type": "array",
+                    "items": {
+                        "$id": "/properties/profile/properties/categories/items",
+                        "type": "string",
+                        "title": "The 0th Schema ",
+                        "default": "",
+                        "examples": [
+                                     "Electronics: DIY Electronics",
+                                     "Sharing: Blogs"
+                                     ]
+                    }
+                },
+                "technologies": {
+                    "$id": "/properties/profile/properties/technologies",
+                    "type": "array",
+                    "items": {
+                        "$id": "/properties/profile/properties/technologies/items",
+                        "type": "string",
+                        "title": "The 0th Schema ",
+                        "default": "",
+                        "examples": [
+                                     "Arduino",
+                                     "Wordpress"
+                                     ]
+                    }
+                },
+                "skills": {
+                    "$id": "/properties/profile/properties/skills",
+                    "type": "array",
+                    "items": {
+                        "$id": "/properties/profile/properties/skills/items",
+                        "type": "string",
+                        "title": "The 0th Schema ",
+                        "default": "",
+                        "examples": [
+                                     "Coding: C",
+                                     "Writing",
+                                     "Glass Blowing",
+                                     "Scrum Master"
+                                     ]
+                    }
+                }
+            }
+        },
+        "projects": {
+            "$id": "/properties/projects",
+            "type": "object",
+            "properties": {
+                "count": {
+                    "$id": "/properties/projects/properties/count",
+                    "type": "integer",
+                    "title": "The Count Schema ",
+                    "default": 0,
+                    "examples": [
+                                 3
+                                 ]
+                },
+                "indivudual": {
+                    "$id": "/properties/projects/properties/indivudual",
+                    "type": "integer",
+                    "title": "The Indivudual Schema ",
+                    "default": 0,
+                    "examples": [
+                                 1
+                                 ]
+                },
+                "team": {
+                    "$id": "/properties/projects/properties/team",
+                    "type": "integer",
+                    "title": "The Team Schema ",
+                    "default": 0,
+                    "examples": [
+                                 2
+                                 ]
+                },
+                "partners": {
+                    "$id": "/properties/projects/properties/partners",
+                    "type": "array",
+                    "items": {
+                        "$id": "/properties/projects/properties/partners/items",
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "$id": "/properties/projects/properties/partners/items/properties/name",
+                                "type": "string",
+                                "title": "The Name Schema ",
+                                "default": "",
+                                "examples": [
+                                             "Hamza"
+                                             ]
+                            },
+                            "surname": {
+                                "$id": "/properties/projects/properties/partners/items/properties/surname",
+                                "type": "string",
+                                "title": "The Surname Schema ",
+                                "default": "",
+                                "examples": [
+                                             "Zeytinoglu"
+                                             ]
+                            },
+                            "email": {
+                                "$id": "/properties/projects/properties/partners/items/properties/email",
+                                "type": "string",
+                                "title": "The Email Schema ",
+                                "default": "",
+                                "examples": [
+                                             "hamzazl@gmil.com"
+                                             ]
+                            },
+                            "linkedin": {
+                                "$id": "/properties/projects/properties/partners/items/properties/linkedin",
+                                "type": "string",
+                                "title": "The Linkedin Schema ",
+                                "default": "",
+                                "examples": [
+                                             " "
+                                             ]
+                            },
+                            "twitter": {
+                                "$id": "/properties/projects/properties/partners/items/properties/twitter",
+                                "type": "string",
+                                "title": "The Twitter Schema ",
+                                "default": "",
+                                "examples": [
+                                             "hamzaz"
+                                             ]
+                            }
+                        }
+                    }
+                },
+                "domains": {
+                    "$id": "/properties/projects/properties/domains",
+                    "type": "array",
+                    "items": {
+                        "$id": "/properties/projects/properties/domains/items",
+                        "type": "string",
+                        "title": "The 0th Schema ",
+                        "default": "",
+                        "examples": [
+                                     "IT",
+                                     "Textile"
+                                     ]
+                    }
+                },
+                "categories": {
+                    "$id": "/properties/projects/properties/categories",
+                    "type": "array",
+                    "items": {
+                        "$id": "/properties/projects/properties/categories/items",
+                        "type": "string",
+                        "title": "The 0th Schema ",
+                        "default": "",
+                        "examples": [
+                                     "Electronics: DIY Electronics",
+                                     "Smart Clothing"
+                                     ]
+                    }
+                },
+                "technologies": {
+                    "$id": "/properties/projects/properties/technologies",
+                    "type": "array",
+                    "items": {
+                        "$id": "/properties/projects/properties/technologies/items",
+                        "type": "string",
+                        "title": "The 0th Schema ",
+                        "default": "",
+                        "examples": [
+                                     "Arduino"
+                                     ]
+                    }
+                },
+                "skills": {
+                    "$id": "/properties/projects/properties/skills",
+                    "type": "array",
+                    "items": {
+                        "$id": "/properties/projects/properties/skills/items",
+                        "type": "string",
+                        "title": "The 0th Schema ",
+                        "default": "",
+                        "examples": [
+                                     "Coding: C",
+                                     "Digital Design",
+                                     "Fashion Design"
+                                     ]
+                    }
+                },
+                "description": {
+                    "$id": "/properties/projects/properties/description",
+                    "type": "string",
+                    "title": "The Description Schema ",
+                    "default": "",
+                    "examples": [
+                                 "I have designed an interacting tool based on Arduino chips. It is aimed to be used in wearable clothes and gadgets. It aims to visualize invasion of physical personal space in real time."
+                                 ]
+                }
+            }
+        },
+        "behavior": {
+            "$id": "/properties/behavior",
+            "type": "object",
+            "properties": {
+                "complementarity": {
+                    "$id": "/properties/behavior/properties/complementarity",
+                    "type": "integer",
+                    "title": "The Complementarity Schema ",
+                    "default": 0
+                },
+                "similarity": {
+                    "$id": "/properties/behavior/properties/similarity",
+                    "type": "integer",
+                    "title": "The Similarity Schema ",
+                    "default": 0,
+                    "examples": [
+                                 2
+                                 ]
+                },
+                "locality": {
+                    "$id": "/properties/behavior/properties/locality",
+                    "type": "integer",
+                    "title": "The Locality Schema ",
+                    "default": 0,
+                    "examples": [
+                                 3
+                                 ]
+                },
+                "socialization": {
+                    "$id": "/properties/behavior/properties/socialization",
+                    "type": "integer",
+                    "title": "The Socialization Schema ",
+                    "default": 0,
+                    "examples": [
+                                 3
+                                 ]
+                },
+                "resemblance": {
+                    "$id": "/properties/behavior/properties/resemblance",
+                    "type": "integer",
+                    "title": "The Resemblance Schema ",
+                    "default": 0,
+                    "examples": [
+                                 3
+                                 ]
+                }
+            }
+        },
+        "values": {
+            "$id": "/properties/values",
+            "type": "object",
+            "properties": {
+                "power": {
+                    "$id": "/properties/values/properties/power",
+                    "type": "integer",
+                    "title": "The Power Schema ",
+                    "default": 0,
+                    "examples": [
+                                 1
+                                 ]
+                },
+                "achievement": {
+                    "$id": "/properties/values/properties/achievement",
+                    "type": "integer",
+                    "title": "The Achievement Schema ",
+                    "default": 0,
+                    "examples": [
+                                 3
+                                 ]
+                },
+                "hedonism": {
+                    "$id": "/properties/values/properties/hedonism",
+                    "type": "integer",
+                    "title": "The Hedonism Schema ",
+                    "default": 0,
+                    "examples": [
+                                 3
+                                 ]
+                },
+                "stimulation": {
+                    "$id": "/properties/values/properties/stimulation",
+                    "type": "integer",
+                    "title": "The Stimulation Schema ",
+                    "default": 0,
+                    "examples": [
+                                 6
+                                 ]
+                },
+                "Selfdirection": {
+                    "$id": "/properties/values/properties/Selfdirection",
+                    "type": "integer",
+                    "title": "The Selfdirection Schema ",
+                    "default": 0,
+                    "examples": [
+                                 8
+                                 ]
+                },
+                "universalism": {
+                    "$id": "/properties/values/properties/universalism",
+                    "type": "integer",
+                    "title": "The Universalism Schema ",
+                    "default": 0,
+                    "examples": [
+                                 8
+                                 ]
+                },
+                "benevolence": {
+                    "$id": "/properties/values/properties/benevolence",
+                    "type": "integer",
+                    "title": "The Benevolence Schema ",
+                    "default": 0,
+                    "examples": [
+                                 8
+                                 ]
+                },
+                "tradition": {
+                    "$id": "/properties/values/properties/tradition",
+                    "type": "integer",
+                    "title": "The Tradition Schema ",
+                    "default": 0,
+                    "examples": [
+                                 8
+                                 ]
+                },
+                "conformity": {
+                    "$id": "/properties/values/properties/conformity",
+                    "type": "integer",
+                    "title": "The Conformity Schema ",
+                    "default": 0,
+                    "examples": [
+                                 3
+                                 ]
+                },
+                "security": {
+                    "$id": "/properties/values/properties/security",
+                    "type": "integer",
+                    "title": "The Security Schema ",
+                    "default": 0,
+                    "examples": [
+                                 2
+                                 ]
+                }
+            }
+        }
+    }
+}

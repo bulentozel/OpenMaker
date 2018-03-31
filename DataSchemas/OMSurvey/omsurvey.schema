@@ -1,7 +1,7 @@
 {
-    "$id": "http://example.com/example.json",
+    "$id": "https://github.com/bulentozel/OpenMaker/blob/master/DataSchemas/OMSurvey/omsurvey_example.json",
     "type": "object",
-    "definitions": {},
+    "definitions": {The JSON Schema for OM survey data.},
     "$schema": "http://json-schema.org/draft-07/schema#",
     "required":["id","name","surname","email","community affiliations","funding","profile", "projects","behavior"],
     "maxProperties":13,
